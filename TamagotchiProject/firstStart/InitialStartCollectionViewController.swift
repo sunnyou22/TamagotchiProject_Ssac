@@ -17,9 +17,10 @@ class InitialStartCollectionViewController: UICollectionViewController {
         navigationItem.title = "다마고치 선택하기" // 초기화면으로 씬에서 지정하면 나타날 거임
         
         let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 8
+        let spacing: CGFloat = 16
+        
         let width = UIScreen.main.bounds.width - (spacing * 4)
-        layout.itemSize = CGSize(width:  width / 3, height: width / 2.8)
+        layout.itemSize = CGSize(width:  width / 3, height: (width / 2.8) * 1.2)
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing

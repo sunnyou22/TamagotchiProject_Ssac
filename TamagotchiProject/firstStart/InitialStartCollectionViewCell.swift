@@ -22,7 +22,7 @@ class InitialStartCollectionViewCell: UICollectionViewCell {
         labelView.clipsToBounds = true
         labelView.layer.cornerRadius = 5
         labelView.layer.borderColor = textAndBoderColor.cgColor
-        labelView.layer.borderWidth = 1.5
+        labelView.layer.borderWidth = 1
         labelView.layer.backgroundColor = UIColor.clear.cgColor
         staticName.backgroundColor = UIColor.clear
         staticName.textColor = textAndBoderColor

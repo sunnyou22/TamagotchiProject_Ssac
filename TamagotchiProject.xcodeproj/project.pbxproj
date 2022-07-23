@@ -125,6 +125,8 @@
 			dependencies = (
 			);
 			name = TamagotchiProject;
+			packageProductDependencies = (
+			);
 			productName = TamagotchiProject;
 			productReference = 90A3B4AD288A89C1001F5ACB /* TamagotchiProject.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +155,8 @@
 				Base,
 			);
 			mainGroup = 90A3B4A4288A89C1001F5ACB;
+			packageReferences = (
+			);
 			productRefGroup = 90A3B4AE288A89C1001F5ACB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -340,7 +344,7 @@
 				INFOPLIST_FILE = TamagotchiProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = InitialStart;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -369,7 +373,7 @@
 				INFOPLIST_FILE = TamagotchiProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = InitialStart;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

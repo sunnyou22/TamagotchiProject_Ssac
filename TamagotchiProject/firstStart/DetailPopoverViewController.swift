@@ -30,11 +30,13 @@ class DetailPopoverViewController: UIViewController {
         //MARK: text
         tamagochName.text = tamagotchiData?.name
         tamagochName.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
-        tamagochName.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        tamagochName.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         
         tamagochiInfoLabel.text = tamagotchiData?.description
+        tamagochiInfoLabel.numberOfLines = 0
         tamagochiInfoLabel.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         tamagochiInfoLabel.font = UIFont.systemFont(ofSize: 15)
+        tamagochiInfoLabel.textAlignment = .center
         
         
         //MARK: 배경색
@@ -46,7 +48,7 @@ class DetailPopoverViewController: UIViewController {
         labelView.clipsToBounds = true
         labelView.layer.cornerRadius = 5
         labelView.layer.borderColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
-        labelView.layer.borderWidth = 1.5
+        labelView.layer.borderWidth = 1
         labelView.backgroundColor = .clear
         
         sectionView.backgroundColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
