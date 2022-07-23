@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhf-OV-Rd5">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--다마고치 선택하기-->
+        <scene sceneID="r68-Kr-5TD">
+            <objects>
+                <collectionViewController storyboardIdentifier="InitialStartCollectionViewController" id="Uhf-OV-Rd5" customClass="InitialStartCollectionViewController" customModule="TamagotchiProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="LP4-l6-q98">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eVv-4r-0OY">
+                            <size key="itemSize" width="127" height="143"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InitialStartCollectionViewCell" id="RAD-B6-b9F" customClass="InitialStartCollectionViewCell" customModule="TamagotchiProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="127" height="143"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Be7-Wa-ZWz">
+                                    <rect key="frame" x="0.0" y="0.0" width="127" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-6" translatesAutoresizingMaskIntoConstraints="NO" id="Di9-tR-QiQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="127" height="115.33333333333333"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Di9-tR-QiQ" secondAttribute="height" multiplier="43:39" id="PS3-LZ-ec6"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiK-T1-0oI">
+                                            <rect key="frame" x="0.0" y="119.33333333333333" width="127" height="23.666666666666671"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="따끔따끔 다마고치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reT-zU-4wT">
+                                                    <rect key="frame" x="0.0" y="3.3333333333333428" width="127" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                            <constraints>
+                                                <constraint firstItem="reT-zU-4wT" firstAttribute="leading" secondItem="JiK-T1-0oI" secondAttribute="leading" id="L5f-by-it4"/>
+                                                <constraint firstAttribute="trailing" secondItem="reT-zU-4wT" secondAttribute="trailing" id="OFK-eW-Qjh"/>
+                                                <constraint firstItem="reT-zU-4wT" firstAttribute="centerY" secondItem="JiK-T1-0oI" secondAttribute="centerY" id="zJo-yZ-5F8"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Di9-tR-QiQ" firstAttribute="top" secondItem="Be7-Wa-ZWz" secondAttribute="top" id="DfN-9G-l64"/>
+                                        <constraint firstItem="Di9-tR-QiQ" firstAttribute="leading" secondItem="Be7-Wa-ZWz" secondAttribute="leading" id="Lcu-FR-8da"/>
+                                        <constraint firstItem="JiK-T1-0oI" firstAttribute="leading" secondItem="Be7-Wa-ZWz" secondAttribute="leading" id="Ptn-6B-9iA"/>
+                                        <constraint firstAttribute="trailing" secondItem="JiK-T1-0oI" secondAttribute="trailing" id="mME-5w-B2K"/>
+                                        <constraint firstItem="JiK-T1-0oI" firstAttribute="top" secondItem="Di9-tR-QiQ" secondAttribute="bottom" constant="4" id="wma-0p-fNz"/>
+                                        <constraint firstAttribute="bottom" secondItem="JiK-T1-0oI" secondAttribute="bottom" id="zOF-AJ-0sY"/>
+                                        <constraint firstAttribute="trailing" secondItem="Di9-tR-QiQ" secondAttribute="trailing" id="zT7-xx-ecD"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="127" height="143"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Uhf-OV-Rd5" id="X7T-uS-tMF"/>
+                            <outlet property="delegate" destination="Uhf-OV-Rd5" id="43h-Sj-tsp"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="다마고치 선택하기" id="xHJ-X6-28h"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggs-K4-6nY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876.81159420289862" y="122.28260869565219"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FaI-r7-UiL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wED-wp-c0E" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1qN-lu-gkc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Uhf-OV-Rd5" kind="relationship" relationship="rootViewController" id="z2e-vI-fJx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JYE-dA-RRe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181" y="123"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1-6" width="152" height="151"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

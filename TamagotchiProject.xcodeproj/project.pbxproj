@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */; };
 		90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */; };
-		90A3B4B5288A89C1001F5ACB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B4288A89C1001F5ACB /* ViewController.swift */; };
+		90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B4288A89C1001F5ACB /* MainViewController.swift */; };
 		90A3B4B8288A89C1001F5ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A3B4B6288A89C1001F5ACB /* Main.storyboard */; };
 		90A3B4BA288A89C3001F5ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90A3B4B9288A89C3001F5ACB /* Assets.xcassets */; };
 		90A3B4BD288A89C3001F5ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A3B4BB288A89C3001F5ACB /* LaunchScreen.storyboard */; };
+		90A3B4CD288BAA77001F5ACB /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A3B4CC288BAA77001F5ACB /* Setting.storyboard */; };
+		90A3B4D1288BABE7001F5ACB /* InitialStart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A3B4D0288BABE7001F5ACB /* InitialStart.storyboard */; };
+		90A3B4D3288BAC3C001F5ACB /* InitialStartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4D2288BAC3C001F5ACB /* InitialStartCollectionViewController.swift */; };
+		90A3B4D5288BAF37001F5ACB /* InitialStartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4D4288BAF37001F5ACB /* InitialStartCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		90A3B4AD288A89C1001F5ACB /* TamagotchiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamagotchiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		90A3B4B4288A89C1001F5ACB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		90A3B4B4288A89C1001F5ACB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		90A3B4B7288A89C1001F5ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90A3B4B9288A89C3001F5ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90A3B4BC288A89C3001F5ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90A3B4BE288A89C3001F5ACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90A3B4CC288BAA77001F5ACB /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		90A3B4D0288BABE7001F5ACB /* InitialStart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitialStart.storyboard; sourceTree = "<group>"; };
+		90A3B4D2288BAC3C001F5ACB /* InitialStartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialStartCollectionViewController.swift; sourceTree = "<group>"; };
+		90A3B4D4288BAF37001F5ACB /* InitialStartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialStartCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,33 @@
 			children = (
 				90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */,
 				90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */,
-				90A3B4B4288A89C1001F5ACB /* ViewController.swift */,
-				90A3B4B6288A89C1001F5ACB /* Main.storyboard */,
+				90A3B4C4288BA89E001F5ACB /* firstStart */,
+				90A3B4C6288BA8F0001F5ACB /* settingChange */,
 				90A3B4B9288A89C3001F5ACB /* Assets.xcassets */,
 				90A3B4BB288A89C3001F5ACB /* LaunchScreen.storyboard */,
 				90A3B4BE288A89C3001F5ACB /* Info.plist */,
 			);
 			path = TamagotchiProject;
+			sourceTree = "<group>";
+		};
+		90A3B4C4288BA89E001F5ACB /* firstStart */ = {
+			isa = PBXGroup;
+			children = (
+				90A3B4D0288BABE7001F5ACB /* InitialStart.storyboard */,
+				90A3B4D2288BAC3C001F5ACB /* InitialStartCollectionViewController.swift */,
+				90A3B4D4288BAF37001F5ACB /* InitialStartCollectionViewCell.swift */,
+				90A3B4B6288A89C1001F5ACB /* Main.storyboard */,
+				90A3B4B4288A89C1001F5ACB /* MainViewController.swift */,
+			);
+			path = firstStart;
+			sourceTree = "<group>";
+		};
+		90A3B4C6288BA8F0001F5ACB /* settingChange */ = {
+			isa = PBXGroup;
+			children = (
+				90A3B4CC288BAA77001F5ACB /* Setting.storyboard */,
+			);
+			path = settingChange;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +154,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				90A3B4BD288A89C3001F5ACB /* LaunchScreen.storyboard in Resources */,
+				90A3B4CD288BAA77001F5ACB /* Setting.storyboard in Resources */,
 				90A3B4BA288A89C3001F5ACB /* Assets.xcassets in Resources */,
+				90A3B4D1288BABE7001F5ACB /* InitialStart.storyboard in Resources */,
 				90A3B4B8288A89C1001F5ACB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90A3B4B5288A89C1001F5ACB /* ViewController.swift in Sources */,
+				90A3B4D3288BAC3C001F5ACB /* InitialStartCollectionViewController.swift in Sources */,
+				90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */,
 				90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */,
 				90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */,
+				90A3B4D5288BAF37001F5ACB /* InitialStartCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,10 +324,10 @@
 				INFOPLIST_FILE = TamagotchiProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = InitialStart;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,10 +353,10 @@
 				INFOPLIST_FILE = TamagotchiProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = InitialStart;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
