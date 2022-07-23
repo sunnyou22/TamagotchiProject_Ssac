@@ -17,6 +17,7 @@
 		90A3B4D1288BABE7001F5ACB /* InitialStart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A3B4D0288BABE7001F5ACB /* InitialStart.storyboard */; };
 		90A3B4D3288BAC3C001F5ACB /* InitialStartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4D2288BAC3C001F5ACB /* InitialStartCollectionViewController.swift */; };
 		90A3B4D5288BAF37001F5ACB /* InitialStartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4D4288BAF37001F5ACB /* InitialStartCollectionViewCell.swift */; };
+		90A3B4D7288BBE7D001F5ACB /* TamagotchiIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4D6288BBE7D001F5ACB /* TamagotchiIData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		90A3B4D0288BABE7001F5ACB /* InitialStart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitialStart.storyboard; sourceTree = "<group>"; };
 		90A3B4D2288BAC3C001F5ACB /* InitialStartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialStartCollectionViewController.swift; sourceTree = "<group>"; };
 		90A3B4D4288BAF37001F5ACB /* InitialStartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialStartCollectionViewCell.swift; sourceTree = "<group>"; };
+		90A3B4D6288BBE7D001F5ACB /* TamagotchiIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiIData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */,
 				90A3B4C4288BA89E001F5ACB /* firstStart */,
 				90A3B4C6288BA8F0001F5ACB /* settingChange */,
+				90A3B4D6288BBE7D001F5ACB /* TamagotchiIData.swift */,
 				90A3B4B9288A89C3001F5ACB /* Assets.xcassets */,
 				90A3B4BB288A89C3001F5ACB /* LaunchScreen.storyboard */,
 				90A3B4BE288A89C3001F5ACB /* Info.plist */,
@@ -172,6 +175,7 @@
 				90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */,
 				90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */,
 				90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */,
+				90A3B4D7288BBE7D001F5ACB /* TamagotchiIData.swift in Sources */,
 				90A3B4D5288BAF37001F5ACB /* InitialStartCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

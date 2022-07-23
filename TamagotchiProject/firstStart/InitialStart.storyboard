@@ -65,6 +65,12 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="127" height="143"/>
+                                <connections>
+                                    <outlet property="contentView" destination="Be7-Wa-ZWz" id="5AF-G0-tKF"/>
+                                    <outlet property="labelView" destination="JiK-T1-0oI" id="wdb-My-Ydf"/>
+                                    <outlet property="staticImage" destination="Di9-tR-QiQ" id="N1v-sc-7wN"/>
+                                    <outlet property="staticName" destination="reT-zU-4wT" id="14W-Kr-hSR"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -76,7 +82,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggs-K4-6nY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876.81159420289862" y="122.28260869565219"/>
+            <point key="canvasLocation" x="1194" y="-14"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FaI-r7-UiL">
