@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhf-OV-Rd5">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +14,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="InitialStartCollectionViewController" id="Uhf-OV-Rd5" customClass="InitialStartCollectionViewController" customModule="TamagotchiProject" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="LP4-l6-q98">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eVv-4r-0OY">
@@ -82,23 +83,34 @@
             </objects>
             <point key="canvasLocation" x="630" y="86"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="FaI-r7-UiL">
+        <!--Detail Popover View Controller-->
+        <scene sceneID="JPk-E5-rKy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wED-wp-c0E" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1qN-lu-gkc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Uhf-OV-Rd5" kind="relationship" relationship="rootViewController" id="z2e-vI-fJx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JYE-dA-RRe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="DetailPopoverViewController" id="eV2-aA-b9p" customClass="DetailPopoverViewController" customModule="TamagotchiProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3TZ-Pk-epc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7X-ns-SuP">
+                                <rect key="frame" x="37.666666666666657" y="212" width="315" height="420"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="P7X-ns-SuP" secondAttribute="height" multiplier="3:4" id="dtS-UY-Mbw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aB8-2t-Eoq"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.21608944389763779" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="P7X-ns-SuP" firstAttribute="width" secondItem="3TZ-Pk-epc" secondAttribute="width" multiplier="0.807692" id="0Lh-Gw-acr"/>
+                            <constraint firstItem="P7X-ns-SuP" firstAttribute="centerY" secondItem="3TZ-Pk-epc" secondAttribute="centerY" id="ZR4-SS-7cg"/>
+                            <constraint firstItem="P7X-ns-SuP" firstAttribute="centerX" secondItem="3TZ-Pk-epc" secondAttribute="centerX" id="hlp-cv-u6o"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gn8-8n-jb3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-181" y="123"/>
+            <point key="canvasLocation" x="1424.6153846153845" y="85.308056872037909"/>
         </scene>
     </scenes>
     <resources>

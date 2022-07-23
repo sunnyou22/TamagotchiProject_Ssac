@@ -12,13 +12,6 @@ class InitialStartCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let sb = UIStoryboard()
-        let vc = sb.instantiateViewController(withIdentifier: "InitialStartCollectionViewController") as! InitialStartCollectionViewController
-        let nav = UINavigationController(rootViewController: vc) // 씬딜리게이트에서 초기화면 지정할 때 바꾸기
-        
-        nav.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-        
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 8
         let width = UIScreen.main.bounds.width - (spacing * 4)
@@ -42,11 +35,22 @@ class InitialStartCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialStartCollectionViewCell.identifier, for: indexPath) as! InitialStartCollectionViewCell
         
         cell.configureCell(index: indexPath.row)
-        
-        
-        
+       
         return cell
     }
     
-    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let sb = UIStoryboard(name: "InitialStart", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: DetailPopoverViewController.identifier) as! DetailPopoverViewController
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .overCurrentContext
+        nav.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+  
+        
+        present(nav, animated: true)
+        
+        navigationItem.title = "다마고치 선택하기"
+    }
 }
