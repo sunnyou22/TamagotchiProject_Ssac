@@ -14,26 +14,29 @@ class InitialStartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var staticImage: UIImageView!
     @IBOutlet weak var staticName: UILabel!
     
-    func configureCell(imageNumber: Int) {
+    func configureCell(index: Int) {
         let textAndBoderColor: UIColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
-        let backgroundColor: UIColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        let tamagochi: TamagochiInfo = TamagochiInfo()
         
         //MARK: labelViewUI
         labelView.clipsToBounds = true
-        labelView.layer.cornerRadius = 10
+        labelView.layer.cornerRadius = 5
         labelView.layer.borderColor = textAndBoderColor.cgColor
         labelView.layer.borderWidth = 1.5
         labelView.layer.backgroundColor = UIColor.clear.cgColor
+        staticName.backgroundColor = UIColor.clear
+        staticName.textColor = textAndBoderColor
+        staticName.font = UIFont.boldSystemFont(ofSize: 13)
         
-        //MARK: staticImage
-        if imageNumber < 4 {
-        staticImage.image = UIImage(named: "\(imageNumber)-6")
+        if index < 3 {
+            //MARK: staticImage
+            staticImage.image = UIImage(named: "\(tamagochi.Tamagochis[index].imageNumber)-6")
+            
+            //MARK: staticLabel
+            staticName.text = tamagochi.Tamagochis[index].name
         } else {
+            staticName.text = "준비중이에요"
             staticImage.image = UIImage(named: "noImage")
         }
-        
-    //MARK: staticLabel
-        staticName
-        
     }
 }

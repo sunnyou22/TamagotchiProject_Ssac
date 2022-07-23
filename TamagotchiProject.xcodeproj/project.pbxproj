@@ -70,7 +70,6 @@
 				90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */,
 				90A3B4C4288BA89E001F5ACB /* firstStart */,
 				90A3B4C6288BA8F0001F5ACB /* settingChange */,
-				90A3B4D6288BBE7D001F5ACB /* TamagotchiIData.swift */,
 				90A3B4B9288A89C3001F5ACB /* Assets.xcassets */,
 				90A3B4BB288A89C3001F5ACB /* LaunchScreen.storyboard */,
 				90A3B4BE288A89C3001F5ACB /* Info.plist */,
@@ -84,6 +83,7 @@
 				90A3B4D0288BABE7001F5ACB /* InitialStart.storyboard */,
 				90A3B4D2288BAC3C001F5ACB /* InitialStartCollectionViewController.swift */,
 				90A3B4D4288BAF37001F5ACB /* InitialStartCollectionViewCell.swift */,
+				90A3B4D6288BBE7D001F5ACB /* TamagotchiIData.swift */,
 				90A3B4B6288A89C1001F5ACB /* Main.storyboard */,
 				90A3B4B4288A89C1001F5ACB /* MainViewController.swift */,
 			);

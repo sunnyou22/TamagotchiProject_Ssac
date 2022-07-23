@@ -17,30 +17,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eVv-4r-0OY">
-                            <size key="itemSize" width="127" height="143"/>
+                            <size key="itemSize" width="127" height="148"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InitialStartCollectionViewCell" id="RAD-B6-b9F" customClass="InitialStartCollectionViewCell" customModule="TamagotchiProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="127" height="143"/>
+                                <rect key="frame" x="0.0" y="0.0" width="127" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Be7-Wa-ZWz">
-                                    <rect key="frame" x="0.0" y="0.0" width="127" height="143"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="127" height="148"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-6" translatesAutoresizingMaskIntoConstraints="NO" id="Di9-tR-QiQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="127" height="115.33333333333333"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Di9-tR-QiQ" secondAttribute="height" multiplier="43:39" id="PS3-LZ-ec6"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="0.0" width="127" height="113.66666666666667"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiK-T1-0oI">
-                                            <rect key="frame" x="0.0" y="119.33333333333333" width="127" height="23.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="117.66666666666667" width="127" height="30.333333333333329"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="따끔따끔 다마고치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reT-zU-4wT">
-                                                    <rect key="frame" x="0.0" y="3.3333333333333428" width="127" height="17"/>
+                                                    <rect key="frame" x="0.0" y="6.6666666666666572" width="127" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -58,13 +55,14 @@
                                         <constraint firstItem="Di9-tR-QiQ" firstAttribute="top" secondItem="Be7-Wa-ZWz" secondAttribute="top" id="DfN-9G-l64"/>
                                         <constraint firstItem="Di9-tR-QiQ" firstAttribute="leading" secondItem="Be7-Wa-ZWz" secondAttribute="leading" id="Lcu-FR-8da"/>
                                         <constraint firstItem="JiK-T1-0oI" firstAttribute="leading" secondItem="Be7-Wa-ZWz" secondAttribute="leading" id="Ptn-6B-9iA"/>
+                                        <constraint firstItem="Di9-tR-QiQ" firstAttribute="height" secondItem="Be7-Wa-ZWz" secondAttribute="height" multiplier="0.768504" id="iVm-tj-Kgz"/>
                                         <constraint firstAttribute="trailing" secondItem="JiK-T1-0oI" secondAttribute="trailing" id="mME-5w-B2K"/>
                                         <constraint firstItem="JiK-T1-0oI" firstAttribute="top" secondItem="Di9-tR-QiQ" secondAttribute="bottom" constant="4" id="wma-0p-fNz"/>
                                         <constraint firstAttribute="bottom" secondItem="JiK-T1-0oI" secondAttribute="bottom" id="zOF-AJ-0sY"/>
                                         <constraint firstAttribute="trailing" secondItem="Di9-tR-QiQ" secondAttribute="trailing" id="zT7-xx-ecD"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="127" height="143"/>
+                                <size key="customSize" width="127" height="148"/>
                                 <connections>
                                     <outlet property="contentView" destination="Be7-Wa-ZWz" id="5AF-G0-tKF"/>
                                     <outlet property="labelView" destination="JiK-T1-0oI" id="wdb-My-Ydf"/>
@@ -82,7 +80,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggs-K4-6nY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1194" y="-14"/>
+            <point key="canvasLocation" x="630" y="86"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FaI-r7-UiL">
