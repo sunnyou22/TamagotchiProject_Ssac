@@ -8,9 +8,13 @@
 import UIKit
 
 class InitialStartCollectionViewController: UICollectionViewController {
+    //MARK: 값을 보내기 위한 프로퍼티
+    var tamagotchiInfo = TamagochiInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "다마고치 선택하기" // 초기화면으로 씬에서 지정하면 나타날 거임
         
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 8
@@ -20,7 +24,6 @@ class InitialStartCollectionViewController: UICollectionViewController {
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
         collectionView.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-        
         
         collectionView.collectionViewLayout = layout
     }
@@ -33,24 +36,28 @@ class InitialStartCollectionViewController: UICollectionViewController {
     //MARK: 셀 디자인
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialStartCollectionViewCell.identifier, for: indexPath) as! InitialStartCollectionViewCell
-        
+
         cell.configureCell(index: indexPath.row)
-       
+        
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if indexPath.row < 3 {
         let sb = UIStoryboard(name: "InitialStart", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: DetailPopoverViewController.identifier) as! DetailPopoverViewController
         let nav = UINavigationController(rootViewController: vc)
         
         nav.modalPresentationStyle = .overCurrentContext
-        nav.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-  
-        
         present(nav, animated: true)
-        
-        navigationItem.title = "다마고치 선택하기"
+             
+        vc.tamagotchiData = tamagotchiInfo.Tamagochis[indexPath.row]
+        } else {
+            let alert = UIAlertController(title: "알림", message: "아직 준비중입니다ㅠ△ㅠ", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .cancel)
+            alert.addAction(ok)
+            present(alert, animated: true)
+        }
     }
 }
