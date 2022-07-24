@@ -153,7 +153,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="OKE-N3-ncN"/>
                     <connections>
+                        <outlet property="ballonLabel" destination="IV2-5h-sp9" id="FH0-yg-ySI"/>
                         <outlet property="image" destination="U0e-tA-6o6" id="2fd-om-qbi"/>
+                        <outlet property="tamagotchiName" destination="6SV-dL-NP4" id="Avd-pi-0AA"/>
+                        <outlet property="tamagotchiStatus" destination="Bg7-qS-l3c" id="Y5M-f5-vM8"/>
+                        <outletCollection property="textFields" destination="KNy-Sg-pOr" collectionClass="NSMutableArray" id="kLQ-9O-s6A"/>
+                        <outletCollection property="textFields" destination="S7K-oe-ZWW" collectionClass="NSMutableArray" id="RvS-t3-S4S"/>
+                        <outletCollection property="buttonsStyle" destination="vvb-LQ-NSH" collectionClass="NSMutableArray" id="MSI-E3-ePe"/>
+                        <outletCollection property="buttonsStyle" destination="wKF-GJ-jPY" collectionClass="NSMutableArray" id="NMQ-RE-fcp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nF7-kG-8c1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

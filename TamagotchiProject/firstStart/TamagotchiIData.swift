@@ -10,6 +10,7 @@ import Foundation
 // 유저 이름 넣어주기
 struct Tamagochi {
     var name: String
+    var username: String = "대장"
     var description: String
     var imageNumber: Int
    
