@@ -69,6 +69,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="userTextFields:" destination="ed8-yf-UEA" eventType="editingDidEndOnExit" id="e4m-El-Dco"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvb-LQ-NSH">
                                         <rect key="frame" x="188" y="0.0" width="60.333333333333343" height="20"/>
@@ -98,6 +101,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="userTextFields:" destination="ed8-yf-UEA" eventType="editingDidEnd" id="YM7-Aa-FWq"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKF-GJ-jPY">
                                         <rect key="frame" x="188" y="0.0" width="60.333333333333343" height="20"/>

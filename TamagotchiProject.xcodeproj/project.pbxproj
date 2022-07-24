@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		903A6128288D10D700BD6500 /* defaultUISetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A6127288D10D700BD6500 /* defaultUISetting.swift */; };
+		903A612B288D4FA300BD6500 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 903A612A288D4FA300BD6500 /* Toast */; };
 		90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */; };
 		90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */; };
 		90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B4288A89C1001F5ACB /* MainViewController.swift */; };
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903A612B288D4FA300BD6500 /* Toast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +131,7 @@
 			);
 			name = TamagotchiProject;
 			packageProductDependencies = (
+				903A612A288D4FA300BD6500 /* Toast */,
 			);
 			productName = TamagotchiProject;
 			productReference = 90A3B4AD288A89C1001F5ACB /* TamagotchiProject.app */;
@@ -159,6 +162,7 @@
 			);
 			mainGroup = 90A3B4A4288A89C1001F5ACB;
 			packageReferences = (
+				903A6129288D4FA300BD6500 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 90A3B4AE288A89C1001F5ACB /* Products */;
 			projectDirPath = "";
@@ -416,6 +420,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		903A6129288D4FA300BD6500 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		903A612A288D4FA300BD6500 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 903A6129288D4FA300BD6500 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 90A3B4A5288A89C1001F5ACB /* Project object */;
 }

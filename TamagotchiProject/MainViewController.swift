@@ -4,7 +4,7 @@
 //
 //  Created by 방선우 on 2022/07/22.
 //
-
+import Toast
 import UIKit
 
 class MainViewController: UIViewController {
@@ -58,14 +58,29 @@ class MainViewController: UIViewController {
         textFieldSectionViews[0].backgroundColor = fontAndBorderColor
         textFieldSectionViews[1].backgroundColor = fontAndBorderColor
         
+        
         //MARK: ButtonUI
         setButtonUI(buttonsStyle[0], title: "밥먹기", systemImage: "drop.circle")
         setButtonUI(buttonsStyle[1], title: "물먹기", systemImage: "leaf.circle")
+        
+        /*
+         1. 밥먹기를 그냥 누르면 1씩 올라가고
+         2. 텍스트 필드의 숫자 입력 -> 버튼 한번에 올라감
+            2-1. 숫자만 입력 될 수 있게 만들기
+         */
     }
     
     
     
     //MARK: - 메서드
+    @IBAction func userTextFields(_ sender: UITextField) {
+        sender.keyboardType = .numberPad
+        guard let text = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty, Int(text) != nil else {
+            ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
+            return self.view.makeToast("숫자로만 입력해주세요", duration: 0.8, position: .center)
+        }
+        ballonLabel.text = "~냠냠~"
+    }
     
     //MARK: text UI세팅 메서드
     func setLableUI(_ label: UILabel) {
@@ -82,6 +97,7 @@ class MainViewController: UIViewController {
         textField.font = .boldSystemFont(ofSize: 14)
         textField.textColor = fontAndBorderColor
         textField.textAlignment = .center
+        textField.keyboardType = .numberPad
     }
     
     func setButtonUI(_ btn: UIButton, title: String, systemImage: String) {
@@ -93,21 +109,9 @@ class MainViewController: UIViewController {
         btn.setImage(UIImage(systemName: systemImage), for: .normal)
         btn.tintColor = fontAndBorderColor
         btn.setTitle(title, for: .normal)
-    btn.setTitleColor(fontAndBorderColor, for: .normal)
-       btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        btn.setTitleColor(fontAndBorderColor, for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         btn.setInsets(forContentPadding: .init(top: 8, left: 8, bottom: 8, right: 8), imageTitlePadding: 4)
-   
-        
-        
-        //        btn.setTitleColor(fontAndBorderColor, for: .)
-        //        btn.clipsToBounds = true
-        //        btn.layer.cornerRadius = 5
-        //        btn.layer.borderColor = fontAndBorderColor.cgColor
-        //        btn.layer.borderWidth = 1.5
-        //        btn.backgroundColor = .clear
-        //        btn.setImage(UIImage(systemName: systemImage), for: .normal)
-        //        btn.setTitle(title, for: .normal)
-        //        btn.setTitleColor(fontAndBorderColor, for: .normal)
     }
     
     //MARK: 말풍선 대사 랜덤 추출
