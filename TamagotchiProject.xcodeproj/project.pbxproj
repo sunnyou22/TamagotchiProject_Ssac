@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		903A6128288D10D700BD6500 /* defaultUISetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A6127288D10D700BD6500 /* defaultUISetting.swift */; };
 		90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */; };
 		90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */; };
 		90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B4288A89C1001F5ACB /* MainViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		903A6127288D10D700BD6500 /* defaultUISetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultUISetting.swift; sourceTree = "<group>"; };
 		90A3B4AD288A89C1001F5ACB /* TamagotchiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamagotchiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */,
 				90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */,
+				903A6127288D10D700BD6500 /* defaultUISetting.swift */,
 				90A3B4D8288BF8EA001F5ACB /* main */,
 				90A3B4B6288A89C1001F5ACB /* Main.storyboard */,
 				90A3B4B4288A89C1001F5ACB /* MainViewController.swift */,
@@ -188,6 +191,7 @@
 			files = (
 				90A3B4D3288BAC3C001F5ACB /* InitialStartCollectionViewController.swift in Sources */,
 				90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */,
+				903A6128288D10D700BD6500 /* defaultUISetting.swift in Sources */,
 				90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */,
 				90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */,
 				90A3B4D7288BBE7D001F5ACB /* TamagotchiIData.swift in Sources */,

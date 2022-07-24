@@ -13,21 +13,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-      //MARK: 화면 분기처리(고민지점 : 시작하기 버튼을 눌렀을 때 분기하는 것이 맞을까? 아님 입력값이 있을 때 분기하는 것이 맞을까?)
-        guard let scene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: scene)
-        
-        if UserDefaults.standard.bool(forKey: "clickedStartButton") {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            
-            window?.rootViewController = vc
-        } else {
+      //MARK: 화면 분기처리(고민지점 : 시작하기 버튼을 눌렀을 때 분기하는 것이 맞을까? 아님 입력값이 있을 때 분기하는 것이 맞을까?) + 일단 주석처리하자
+//        guard let scene = (scene as? UIWindowScene) else { return }
+//        window = UIWindow(windowScene: scene)
+//
+//        if UserDefaults.standard.bool(forKey: "clickedStartButton") {
+//            let sb = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+//
+//            window?.rootViewController = vc
+//        } else { // 내비게이션컨트롤러 생성으로 타이틀 생긴거 확인
             let sb = UIStoryboard(name: "InitialStart", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "InitialStartCollectionViewController") as! InitialStartCollectionViewController
             
             window?.rootViewController = UINavigationController(rootViewController: vc)
-    }
+//    }
         
         window?.makeKeyAndVisible()
     }

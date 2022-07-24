@@ -15,9 +15,10 @@ class MainViewController: UIViewController {
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet var buttonsStyle: [UIButton]!
     
-    
     // 값전달
     var tamagotchiData: Tamagotchi?
+    let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
+    let viewbackgroundColor = DafaultUISetting.tamaBackgroundColor.setUI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,11 @@ class MainViewController: UIViewController {
         var riceCount: Int
         var waterDropCount: Int
         var labelsInballoon: [String] = []
+        
+        //MARK: labelUI
+        labelSetting(ballonLabel)
+        labelSetting(tamagotchiName)
+        labelSetting(tamagotchiStatus)
         
         //MARK: 말풍선 대사
         guard let username = username else {
@@ -53,10 +59,11 @@ class MainViewController: UIViewController {
     }
     
     //MARK: text UI 속성
-    func textSetting() {
-       
+    func labelSetting(_ label: UILabel) {
+        label.numberOfLines = 0
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textColor = fontAndBorderColor
+        label.textAlignment = .center
     }
-    
-    
 }
 

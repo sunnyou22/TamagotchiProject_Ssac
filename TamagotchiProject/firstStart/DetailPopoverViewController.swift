@@ -73,6 +73,7 @@ class DetailPopoverViewController: UIViewController {
         // 화면분기처리를 위한 버튼 클릭 상태 저장
         UserDefaults.standard.bool(forKey: "clickedStartButton")
         UserDefaults.standard.set(sender.isTouchInside, forKey: "clickedStartButton")
+        
         // 화면 초기화
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
