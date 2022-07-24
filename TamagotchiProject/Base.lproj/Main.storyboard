@@ -69,9 +69,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="userTextFields:" destination="ed8-yf-UEA" eventType="editingDidEndOnExit" id="e4m-El-Dco"/>
-                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvb-LQ-NSH">
                                         <rect key="frame" x="188" y="0.0" width="60.333333333333343" height="20"/>
@@ -80,6 +77,9 @@
                                         <state key="normal" title="밥먹기" image="rectangle.portrait.and.arrow.right" catalog="system">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clickedEatRiceButton:" destination="ed8-yf-UEA" eventType="touchUpInside" id="ciM-Wr-z6J"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -101,9 +101,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="userTextFields:" destination="ed8-yf-UEA" eventType="editingDidEnd" id="YM7-Aa-FWq"/>
-                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKF-GJ-jPY">
                                         <rect key="frame" x="188" y="0.0" width="60.333333333333343" height="20"/>
@@ -113,6 +110,9 @@
                                             <color key="titleColor" systemColor="linkColor"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clicedwaterButton:" destination="ed8-yf-UEA" eventType="touchUpInside" id="Aqa-dW-9pB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
