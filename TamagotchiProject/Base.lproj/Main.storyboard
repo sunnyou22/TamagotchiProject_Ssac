@@ -60,32 +60,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cfP-7s-fTb">
-                                <rect key="frame" x="58.333333333333343" y="589.66666666666663" width="273.33333333333326" height="31"/>
+                                <rect key="frame" x="71.000000000000014" y="589.66666666666663" width="248.33333333333337" height="20"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="KNy-Sg-pOr">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="vIx-Iz-iQf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvb-LQ-NSH">
-                                        <rect key="frame" x="188" y="0.0" width="85.333333333333314" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvb-LQ-NSH">
+                                        <rect key="frame" x="188" y="0.0" width="60.333333333333343" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="밥먹기" image="rectangle.portrait.and.arrow.right" catalog="system">
-                                            <color key="titleColor" systemColor="linkColor"/>
+                                            <color key="titleColor" systemColor="labelColor"/>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="밥먹기">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                                            <color key="baseForegroundColor" systemColor="linkColor"/>
-                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ng9-86-dpX">
-                                <rect key="frame" x="58.333333333333343" y="619.66666666666663" width="180" height="1"/>
+                                <rect key="frame" x="71" y="608.66666666666663" width="180" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Tnj-Ir-8Ra"/>
@@ -93,32 +89,29 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YPI-Mt-Jmz">
-                                <rect key="frame" x="58.333333333333343" y="636.66666666666663" width="273.33333333333326" height="31"/>
+                                <rect key="frame" x="71.000000000000014" y="625.66666666666663" width="248.33333333333337" height="20"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-oe-ZWW">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="cTb-Lh-bM5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKF-GJ-jPY">
-                                        <rect key="frame" x="188" y="0.0" width="85.333333333333314" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKF-GJ-jPY">
+                                        <rect key="frame" x="188" y="0.0" width="60.333333333333343" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="밥먹기" image="rectangle.portrait.and.arrow.right" catalog="system">
                                             <color key="titleColor" systemColor="linkColor"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="밥먹기">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                                            <color key="baseForegroundColor" systemColor="linkColor"/>
-                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xf3-kH-D7i">
-                                <rect key="frame" x="58.333333333333343" y="666.66666666666663" width="180" height="1"/>
+                                <rect key="frame" x="71" y="644.66666666666663" width="180" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="UJA-xb-vY0"/>
@@ -175,6 +168,9 @@
         <image name="3-1" width="152" height="151"/>
         <image name="bubble" width="222" height="142"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

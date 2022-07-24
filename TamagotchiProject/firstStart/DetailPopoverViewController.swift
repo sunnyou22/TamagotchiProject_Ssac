@@ -82,7 +82,7 @@ class DetailPopoverViewController: UIViewController {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        vc.tamagotchiData = tamagotchiData
+//        vc.tamagotchiData = tamagotchiData -> UserDefault로 저장해서 필요없음
         
         sceneDelegate?.window?.rootViewController = vc
         sceneDelegate?.window?.makeKeyAndVisible()

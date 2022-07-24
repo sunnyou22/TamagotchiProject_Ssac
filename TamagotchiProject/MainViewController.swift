@@ -19,7 +19,8 @@ class MainViewController: UIViewController {
     @IBOutlet var textFieldSectionViews: [UIView]!
     
     // 값전달
-    var tamagotchiData: Tamagotchi?
+    var tamagotchiData: Tamagotchi = Tamagotchi(name: UserDefaults.standard.string(forKey: "UserTamagotchiName") ?? "아무개 다마고치", description: "", imageNumber: UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
+    
     let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
     let viewbackgroundColor = DafaultUISetting.tamaBackgroundColor.setUI()
     
@@ -56,9 +57,17 @@ class MainViewController: UIViewController {
         setTextFieldUI(waterTextField, placeholder: "물주세용")
         textFieldSectionViews[0].backgroundColor = fontAndBorderColor
         textFieldSectionViews[1].backgroundColor = fontAndBorderColor
+        
+        //MARK: ButtonUI
+        setButtonUI(buttonsStyle[0], title: "밥먹기", systemImage: "drop.circle")
+        setButtonUI(buttonsStyle[1], title: "물먹기", systemImage: "leaf.circle")
     }
     
-    //MARK: text UI 속성
+    
+    
+    //MARK: - 메서드
+    
+    //MARK: text UI세팅 메서드
     func setLableUI(_ label: UILabel) {
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 14)
@@ -66,6 +75,7 @@ class MainViewController: UIViewController {
         label.textAlignment = .center
     }
     
+    //MARK: textField UI세팅 메서드
     func setTextFieldUI(_ textField: UITextField, placeholder: String) {
         textField.borderStyle = .none
         textField.placeholder = placeholder
@@ -74,12 +84,37 @@ class MainViewController: UIViewController {
         textField.textAlignment = .center
     }
     
+    func setButtonUI(_ btn: UIButton, title: String, systemImage: String) {
+        btn.layer.cornerRadius = 5
+        btn.layer.borderColor = fontAndBorderColor.cgColor
+        btn.layer.borderWidth = 1.5
+        btn.backgroundColor = .clear
+        
+        btn.setImage(UIImage(systemName: systemImage), for: .normal)
+        btn.tintColor = fontAndBorderColor
+        btn.setTitle(title, for: .normal)
+    btn.setTitleColor(fontAndBorderColor, for: .normal)
+       btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        btn.setInsets(forContentPadding: .init(top: 8, left: 8, bottom: 8, right: 8), imageTitlePadding: 4)
+   
+        
+        
+        //        btn.setTitleColor(fontAndBorderColor, for: .)
+        //        btn.clipsToBounds = true
+        //        btn.layer.cornerRadius = 5
+        //        btn.layer.borderColor = fontAndBorderColor.cgColor
+        //        btn.layer.borderWidth = 1.5
+        //        btn.backgroundColor = .clear
+        //        btn.setImage(UIImage(systemName: systemImage), for: .normal)
+        //        btn.setTitle(title, for: .normal)
+        //        btn.setTitleColor(fontAndBorderColor, for: .normal)
+    }
+    
     //MARK: 말풍선 대사 랜덤 추출
     func randomlabelInballoon() -> String {
         var labels: [String] = []
-        guard let username = tamagotchiData?.username else {
-            return "누구시죠!!?"
-        }
+        let username = tamagotchiData.username
+        
         labels = [
             "\(username)님 반가워요!",
             "\(username)님 잘 지내셨나요?",
