@@ -69,5 +69,15 @@ class DetailPopoverViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func startButton(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        vc.tamagotchiData = tamagotchiData
+        
+//        샤라락~느낌으로 화면전환
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
 }
 

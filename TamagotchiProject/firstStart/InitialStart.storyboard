@@ -105,7 +105,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6S-P0-iqe">
-                                        <rect key="frame" x="40" y="280" width="236" height="1"/>
+                                        <rect key="frame" x="33.5" y="280" width="236" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="236" id="OPl-pY-PTp"/>
@@ -144,6 +144,9 @@
                                                 <rect key="frame" x="151.5" y="0.0" width="151.5" height="52"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="시작하기"/>
+                                                <connections>
+                                                    <action selector="startButton:" destination="eV2-aA-b9p" eventType="touchUpInside" id="DMl-fE-wdw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -179,7 +182,6 @@
                                     <constraint firstItem="TzV-gV-vWD" firstAttribute="centerX" secondItem="P7X-ns-SuP" secondAttribute="centerX" id="P0y-GR-AsF"/>
                                     <constraint firstItem="UbI-92-Cb8" firstAttribute="centerX" secondItem="P7X-ns-SuP" secondAttribute="centerX" id="RP6-Rw-oBk"/>
                                     <constraint firstItem="9OU-rY-afo" firstAttribute="centerX" secondItem="P7X-ns-SuP" secondAttribute="centerX" id="U71-qY-Z2n"/>
-                                    <constraint firstItem="q6S-P0-iqe" firstAttribute="leading" secondItem="P7X-ns-SuP" secondAttribute="leading" constant="40" id="VfJ-5R-VXK"/>
                                     <constraint firstItem="q6S-P0-iqe" firstAttribute="centerX" secondItem="P7X-ns-SuP" secondAttribute="centerX" id="Vo4-ht-np8"/>
                                     <constraint firstItem="TzV-gV-vWD" firstAttribute="width" secondItem="P7X-ns-SuP" secondAttribute="width" multiplier="0.479365" id="ZiV-X8-k8V"/>
                                     <constraint firstAttribute="width" secondItem="P7X-ns-SuP" secondAttribute="height" multiplier="2.5:4" id="dtS-UY-Mbw"/>

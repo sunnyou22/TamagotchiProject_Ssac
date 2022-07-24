@@ -20,7 +20,7 @@ class InitialStartCollectionViewController: UICollectionViewController {
         let spacing: CGFloat = 16
         
         let width = UIScreen.main.bounds.width - (spacing * 4)
-        layout.itemSize = CGSize(width:  width / 3, height: (width / 2.8) * 1.2)
+        layout.itemSize = CGSize(width:  width / 3.2, height: (width / 2.8) * 1.2)
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
