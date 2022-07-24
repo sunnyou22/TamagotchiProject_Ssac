@@ -16,7 +16,7 @@ class InitialStartCollectionViewCell: UICollectionViewCell {
     
     func configureCell(index: Int) {
         let textAndBoderColor: UIColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
-        let tamagochi: TamagochiInfo = TamagochiInfo()
+        let tamagochi: TamagotchiInfo = TamagotchiInfo()
         
         //MARK: labelViewUI
         labelView.clipsToBounds = true
@@ -30,10 +30,10 @@ class InitialStartCollectionViewCell: UICollectionViewCell {
         
         if index < 3 {
             //MARK: staticImage
-            staticImage.image = UIImage(named: "\(tamagochi.Tamagochis[index].imageNumber)-6")
+            staticImage.image = UIImage(named: "\(tamagochi.Tamagotchis[index].imageNumber)-6")
             
             //MARK: staticLabel
-            staticName.text = tamagochi.Tamagochis[index].name
+            staticName.text = tamagochi.Tamagotchis[index].name
         } else {
             staticName.text = "준비중이에요"
             staticImage.image = UIImage(named: "noImage")

@@ -20,7 +20,7 @@ class DetailPopoverViewController: UIViewController {
     
     static var identifier = "DetailPopoverViewController"
     //MARK: 값 받을 공간 - 값이 없을 수도 있으니 옵셔널
-    var tamagotchiData: Tamagochi?
+    var tamagotchiData: Tamagotchi?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +70,7 @@ class DetailPopoverViewController: UIViewController {
     }
     
     @IBAction func startButton(_ sender: UIButton) {
+        // 화면분기처리를 위한 버튼 클릭 상태 저장
         UserDefaults.standard.bool(forKey: "clickedStartButton")
         UserDefaults.standard.set(sender.isTouchInside, forKey: "clickedStartButton")
         // 화면 초기화

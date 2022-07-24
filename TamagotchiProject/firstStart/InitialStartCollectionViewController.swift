@@ -9,7 +9,7 @@ import UIKit
 
 class InitialStartCollectionViewController: UICollectionViewController {
     //MARK: 값을 보내기 위한 프로퍼티
-    var tamagotchiInfo = TamagochiInfo()
+    var tamagotchiInfo = TamagotchiInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class InitialStartCollectionViewController: UICollectionViewController {
         nav.modalPresentationStyle = .overCurrentContext
         present(nav, animated: true)
              
-        vc.tamagotchiData = tamagotchiInfo.Tamagochis[indexPath.row]
+        vc.tamagotchiData = tamagotchiInfo.Tamagotchis[indexPath.row]
         } else {
             let alert = UIAlertController(title: "알림", message: "아직 준비중입니다ㅠ△ㅠ", preferredStyle: .alert)
             let ok = UIAlertAction(title: "확인", style: .cancel)

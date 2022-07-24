@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     
     
     // 값전달
-    var tamagotchiData: Tamagochi?
+    var tamagotchiData: Tamagotchi?
     
     override func viewDidLoad() {
         super.viewDidLoad()
