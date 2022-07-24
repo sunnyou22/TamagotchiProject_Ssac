@@ -65,14 +65,16 @@ class DetailPopoverViewController: UIViewController {
     }
     
     @IBAction func cancleButtonClicked(_ sender: UIButton) {
-        startButton.backgroundColor = .lightGray
         dismiss(animated: true)
     }
     
     @IBAction func startButton(_ sender: UIButton) {
         // 화면분기처리를 위한 버튼 클릭 상태 저장
-        UserDefaults.standard.bool(forKey: "clickedStartButton")
+//        UserDefaults.standard.bool(forKey: "clickedStartButton")
         UserDefaults.standard.set(sender.isTouchInside, forKey: "clickedStartButton")
+//        UserDefaults.standard.string(forKey: "UserTamagotchiName")
+        UserDefaults.standard.set(tamagotchiData?.name, forKey: "UserTamagotchiName")
+        UserDefaults.standard.set(tamagotchiData?.imageNumber, forKey: "UserTamagotchImageNumber")
         
         // 화면 초기화
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene

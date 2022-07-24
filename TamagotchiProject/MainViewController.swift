@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var waterTextField: UITextField!
     @IBOutlet var buttonsStyle: [UIButton]!
     @IBOutlet weak var labelView: UIView!
+    @IBOutlet var textFieldSectionViews: [UIView]!
     
     // 값전달
     var tamagotchiData: Tamagotchi?
@@ -36,39 +37,47 @@ class MainViewController: UIViewController {
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
         //MARK: 이미지
-        image.image = UIImage(named: "\(String(describing: tamagotchiData!.imageNumber))-\(lavel)")
+        image.image = UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(lavel)")
+        print(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
         
         //MARK: label
-        tamagotchiName.text = tamagotchiData?.name
-        labelSetting(ballonLabel)
-        labelSetting(tamagotchiName)
-        labelSetting(tamagotchiStatus)
+        tamagotchiName.text = UserDefaults.standard.string(forKey: "UserTamagotchiName")
+        setLableUI(ballonLabel)
+        setLableUI(tamagotchiName)
+        setLableUI(tamagotchiStatus)
         labelView.clipsToBounds = true
         labelView.layer.cornerRadius = 5
         labelView.layer.borderColor = fontAndBorderColor.cgColor
         labelView.layer.borderWidth = 1
         labelView.backgroundColor = .clear
         
-        //
-        
-        
-    
-        
+        //MARK: Textfeild
+        setTextFieldUI(riceTextField, placeholder: "밥주세용")
+        setTextFieldUI(waterTextField, placeholder: "물주세용")
+        textFieldSectionViews[0].backgroundColor = fontAndBorderColor
+        textFieldSectionViews[1].backgroundColor = fontAndBorderColor
     }
     
     //MARK: text UI 속성
-    func labelSetting(_ label: UILabel) {
+    func setLableUI(_ label: UILabel) {
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 14)
         label.textColor = fontAndBorderColor
         label.textAlignment = .center
     }
     
+    func setTextFieldUI(_ textField: UITextField, placeholder: String) {
+        textField.borderStyle = .none
+        textField.placeholder = placeholder
+        textField.font = .boldSystemFont(ofSize: 14)
+        textField.textColor = fontAndBorderColor
+        textField.textAlignment = .center
+    }
+    
     //MARK: 말풍선 대사 랜덤 추출
     func randomlabelInballoon() -> String {
         var labels: [String] = []
-        let username = tamagotchiData?.username
-        guard let username = username else {
+        guard let username = tamagotchiData?.username else {
             return "누구시죠!!?"
         }
         labels = [

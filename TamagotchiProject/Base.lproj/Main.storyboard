@@ -62,7 +62,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cfP-7s-fTb">
                                 <rect key="frame" x="58.333333333333343" y="589.66666666666663" width="273.33333333333326" height="31"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ㄴㄴㄴ" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="KNy-Sg-pOr">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="KNy-Sg-pOr">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="vIx-Iz-iQf"/>
@@ -95,7 +95,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YPI-Mt-Jmz">
                                 <rect key="frame" x="58.333333333333343" y="636.66666666666663" width="273.33333333333326" height="31"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ㄴㄴㄴ" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-oe-ZWW">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-oe-ZWW">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="cTb-Lh-bM5"/>
@@ -155,13 +155,15 @@
                     <connections>
                         <outlet property="ballonLabel" destination="IV2-5h-sp9" id="FH0-yg-ySI"/>
                         <outlet property="image" destination="U0e-tA-6o6" id="2fd-om-qbi"/>
-                        <outlet property="labelView" destination="94g-Df-Huv" id="BlI-dx-CYm"/>
+                        <outlet property="labelView" destination="94g-Df-Huv" id="HGa-6j-eZK"/>
                         <outlet property="riceTextField" destination="KNy-Sg-pOr" id="BJU-Xm-mQ0"/>
                         <outlet property="tamagotchiName" destination="6SV-dL-NP4" id="Avd-pi-0AA"/>
                         <outlet property="tamagotchiStatus" destination="Bg7-qS-l3c" id="Y5M-f5-vM8"/>
                         <outlet property="waterTextField" destination="S7K-oe-ZWW" id="67V-zd-ABd"/>
                         <outletCollection property="buttonsStyle" destination="vvb-LQ-NSH" collectionClass="NSMutableArray" id="MSI-E3-ePe"/>
                         <outletCollection property="buttonsStyle" destination="wKF-GJ-jPY" collectionClass="NSMutableArray" id="NMQ-RE-fcp"/>
+                        <outletCollection property="textFieldSectionViews" destination="Ng9-86-dpX" collectionClass="NSMutableArray" id="4Sn-CQ-diE"/>
+                        <outletCollection property="textFieldSectionViews" destination="Xf3-kH-D7i" collectionClass="NSMutableArray" id="pWh-e1-mxm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nF7-kG-8c1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
