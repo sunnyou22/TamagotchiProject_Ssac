@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="복습 아직 안하셨다구요? 지금 잠이 오세요??대자인ㅁ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IV2-5h-sp9">
-                                <rect key="frame" x="105" y="136.66666666666666" width="180" height="61"/>
+                                <rect key="frame" x="105" y="131.66666666666666" width="180" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -129,7 +129,7 @@
                         <viewLayoutGuide key="safeArea" id="YXc-Ov-b7h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IV2-5h-sp9" firstAttribute="centerY" secondItem="6gc-tS-tbQ" secondAttribute="centerY" id="3uY-t1-bux"/>
+                            <constraint firstItem="IV2-5h-sp9" firstAttribute="centerY" secondItem="6gc-tS-tbQ" secondAttribute="centerY" constant="-5" id="3uY-t1-bux"/>
                             <constraint firstItem="Ng9-86-dpX" firstAttribute="leading" secondItem="cfP-7s-fTb" secondAttribute="leading" id="59b-TM-GhZ"/>
                             <constraint firstItem="YPI-Mt-Jmz" firstAttribute="top" secondItem="cfP-7s-fTb" secondAttribute="bottom" constant="16" id="EPn-fE-Fz6"/>
                             <constraint firstItem="Bg7-qS-l3c" firstAttribute="top" secondItem="94g-Df-Huv" secondAttribute="bottom" constant="16" id="JNu-Pd-qko"/>
@@ -155,17 +155,18 @@
                     <connections>
                         <outlet property="ballonLabel" destination="IV2-5h-sp9" id="FH0-yg-ySI"/>
                         <outlet property="image" destination="U0e-tA-6o6" id="2fd-om-qbi"/>
+                        <outlet property="labelView" destination="94g-Df-Huv" id="BlI-dx-CYm"/>
+                        <outlet property="riceTextField" destination="KNy-Sg-pOr" id="BJU-Xm-mQ0"/>
                         <outlet property="tamagotchiName" destination="6SV-dL-NP4" id="Avd-pi-0AA"/>
                         <outlet property="tamagotchiStatus" destination="Bg7-qS-l3c" id="Y5M-f5-vM8"/>
-                        <outletCollection property="textFields" destination="KNy-Sg-pOr" collectionClass="NSMutableArray" id="kLQ-9O-s6A"/>
-                        <outletCollection property="textFields" destination="S7K-oe-ZWW" collectionClass="NSMutableArray" id="RvS-t3-S4S"/>
+                        <outlet property="waterTextField" destination="S7K-oe-ZWW" id="67V-zd-ABd"/>
                         <outletCollection property="buttonsStyle" destination="vvb-LQ-NSH" collectionClass="NSMutableArray" id="MSI-E3-ePe"/>
                         <outletCollection property="buttonsStyle" destination="wKF-GJ-jPY" collectionClass="NSMutableArray" id="NMQ-RE-fcp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nF7-kG-8c1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-155.07246376811597" y="-130.43478260869566"/>
+            <point key="canvasLocation" x="-540" y="-962"/>
         </scene>
     </scenes>
     <resources>
