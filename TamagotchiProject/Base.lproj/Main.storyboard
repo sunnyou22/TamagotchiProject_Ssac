@@ -53,17 +53,17 @@
                                     <constraint firstItem="6SV-dL-NP4" firstAttribute="centerY" secondItem="94g-Df-Huv" secondAttribute="centerY" id="xbS-95-178"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label • Label • Labelddddd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg7-qS-l3c">
-                                <rect key="frame" x="107.33333333333333" y="524.66666666666663" width="175.66666666666669" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LV1 • 밥알 0개 • 물방울 0개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg7-qS-l3c">
+                                <rect key="frame" x="115.00000000000001" y="524.66666666666663" width="160.33333333333337" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cfP-7s-fTb">
-                                <rect key="frame" x="71.000000000000014" y="589.66666666666663" width="248.33333333333337" height="20"/>
+                                <rect key="frame" x="72.666666666666671" y="589.66666666666663" width="244.66666666666663" height="19"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="KNy-Sg-pOr">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="19"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="vIx-Iz-iQf"/>
                                         </constraints>
@@ -71,20 +71,20 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvb-LQ-NSH">
-                                        <rect key="frame" x="188" y="0.0" width="60.333333333333343" height="20"/>
+                                        <rect key="frame" x="188" y="0.0" width="56.666666666666657" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="밥먹기" image="rectangle.portrait.and.arrow.right" catalog="system">
+                                        <state key="normal" title="밥먹기" image="person.circle" catalog="system">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="clickedEatRiceButton:" destination="ed8-yf-UEA" eventType="touchUpInside" id="ciM-Wr-z6J"/>
+                                            <action selector="clickbuttons:" destination="ed8-yf-UEA" eventType="touchUpInside" id="uQO-9b-7FD"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ng9-86-dpX">
-                                <rect key="frame" x="71" y="608.66666666666663" width="180" height="1"/>
+                                <rect key="frame" x="72.666666666666686" y="607.66666666666663" width="180" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Tnj-Ir-8Ra"/>
@@ -92,7 +92,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YPI-Mt-Jmz">
-                                <rect key="frame" x="71.000000000000014" y="625.66666666666663" width="248.33333333333337" height="20"/>
+                                <rect key="frame" x="71.000000000000014" y="624.66666666666663" width="248.33333333333337" height="20"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-oe-ZWW">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="20"/>
@@ -111,13 +111,13 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                         </state>
                                         <connections>
-                                            <action selector="clicedwaterButton:" destination="ed8-yf-UEA" eventType="touchUpInside" id="Aqa-dW-9pB"/>
+                                            <action selector="clickbuttons:" destination="ed8-yf-UEA" eventType="touchUpInside" id="ykr-ru-Tq8"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xf3-kH-D7i">
-                                <rect key="frame" x="71" y="644.66666666666663" width="180" height="1"/>
+                                <rect key="frame" x="71" y="643.66666666666663" width="180" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="UJA-xb-vY0"/>
@@ -173,6 +173,7 @@
     <resources>
         <image name="3-1" width="152" height="151"/>
         <image name="bubble" width="222" height="142"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

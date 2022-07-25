@@ -13,8 +13,13 @@ class InitialStartCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: "changeTamagotchi") {
+            navigationItem.title = "다마고치 변경하기"
+        } else {
+            navigationItem.title = "다마고치 선택하기"
+        }
         
-        navigationItem.title = "다마고치 선택하기" // 초기화면으로 씬에서 지정하면 나타날 거임
+         // 초기화면으로 씬에서 지정하면 나타날 거임
         
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 16

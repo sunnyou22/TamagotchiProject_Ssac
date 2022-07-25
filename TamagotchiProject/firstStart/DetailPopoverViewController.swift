@@ -59,7 +59,12 @@ class DetailPopoverViewController: UIViewController {
         cancleButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         cancleButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
         cancleButton.tintColor = .lightGray
-        startButton.setTitle("시작하기", for: .normal)
+        if UserDefaults.standard.bool(forKey: "changeTamagotchi") {
+            startButton.setTitle("변경하기", for: .normal)
+        } else {
+            startButton.setTitle("시작하기", for: .normal)
+        }
+     
         startButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         startButton.tintColor = .lightGray
     }
@@ -70,9 +75,7 @@ class DetailPopoverViewController: UIViewController {
     
     @IBAction func startButton(_ sender: UIButton) {
         // 화면분기처리를 위한 버튼 클릭 상태 저장
-//        UserDefaults.standard.bool(forKey: "clickedStartButton")
         UserDefaults.standard.set(sender.isTouchInside, forKey: "clickedStartButton")
-//        UserDefaults.standard.string(forKey: "UserTamagotchiName")
         UserDefaults.standard.set(tamagotchiData?.name, forKey: "UserTamagotchiName")
         UserDefaults.standard.set(tamagotchiData?.imageNumber, forKey: "UserTamagotchImageNumber")
         
@@ -82,9 +85,10 @@ class DetailPopoverViewController: UIViewController {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        let nav = UINavigationController(rootViewController: vc)
 //        vc.tamagotchiData = tamagotchiData -> UserDefault로 저장해서 필요없음
         
-        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.rootViewController = nav
         sceneDelegate?.window?.makeKeyAndVisible()
     }
 }

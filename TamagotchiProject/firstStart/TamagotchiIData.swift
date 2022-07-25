@@ -13,7 +13,6 @@ struct Tamagotchi {
     var username: String = "대장"
     var description: String
     var imageNumber: Int
-   
 }
 
 struct TamagotchiInfo {

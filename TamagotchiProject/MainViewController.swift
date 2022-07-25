@@ -18,69 +18,119 @@ class MainViewController: UIViewController {
     @IBOutlet weak var labelView: UIView!
     @IBOutlet var textFieldSectionViews: [UIView]!
     
-    // 값전달
+    //MARK: 프로퍼티
     var tamagotchiData: Tamagotchi = Tamagotchi(name: UserDefaults.standard.string(forKey: "UserTamagotchiName") ?? "아무개 다마고치", description: "", imageNumber: UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
-    
-    var lavel: Int = 1 // 이미지별로 다른 거 확인
+    var lavel: Int = 5 // 이미지별로 다른 거 확인
     var riceCount = 0
     var waterDropCount = 0
     let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
     let viewbackgroundColor = DafaultUISetting.tamaBackgroundColor.setUI()
     
     override func viewWillAppear(_ animated: Bool) {
-        ballonLabel.text = randomlabelInballoon()
+        super.viewWillAppear(animated)
+        let username = tamagotchiData.username // 이후 유저디폴트로 바꿔주기
+        
+        navigationItem.title = "\(username)님의 다마고치"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(goSettingTableViewController))
+        navigationItem.rightBarButtonItem?.tintColor = fontAndBorderColor
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : fontAndBorderColor]
+        let barAppearance = UINavigationBarAppearance()
+        barAppearance.backgroundColor = DafaultUISetting.tamaBackgroundColor.setUI()
+        navigationItem.scrollEdgeAppearance = barAppearance
+        navigationItem.backButtonTitle = ""
+        
+        ballonLabel.text = randomlabelInballoon() // 랜덤 텍스트
     }
     
-    @IBAction func clickedEatRiceButton(_ sender: UIButton) {
-        let ricecurrentValue = UserDefaults.standard.integer(forKey: "riceCount")
-        var riceupdateValue = 0
-        
-        guard let riceTextField = riceTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
-            return }
-        
-        //MARK: 쌀
-        if riceTextField.isEmpty {
-            riceupdateValue = ricecurrentValue + 1
-            UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
-            print(riceCount, "ricecount")
-        } else {
-            guard !riceTextField.isEmpty, let riceTextcount = Int(riceTextField) else {
-                return ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
-            }
-            riceupdateValue = ricecurrentValue + riceTextcount
-            UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
-            print(riceCount)
-        }
-    }
-    
-    @IBAction func clicedwaterButton(_ sender: UIButton) {
-        let watercurrentValue = UserDefaults.standard.integer(forKey: "waterCount")
-        var waterupdateValue = 0
-        
-        guard let waterTextField = waterTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
-            return }
-        
-    //MARK: 물
-    if waterTextField.isEmpty {
-            waterupdateValue = watercurrentValue + 1
-            UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
-            print(waterDropCount, "waterDropCount")
-        } else {
-            guard !waterTextField.isEmpty, let waterTextcount = Int(waterTextField) else {
-                return ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
-            }
-            waterupdateValue = watercurrentValue + waterTextcount
-            UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
-            print(waterDropCount)
-        }
+    @IBAction func clickbuttons(_ sender: UIButton) {
+        clickedEatButton(sender, textField: riceTextField)
+        clickedEatButton(sender, textField: waterTextField)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK: view
+        //MARK: view 배경색
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
+        tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "lavel")) • 밥알 \(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        
+        //MARK: 이미지
+        image.image = UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)")
+                              
+        print(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
+        
+        //MARK: label
+        tamagotchiName.text = UserDefaults.standard.string(forKey: "UserTamagotchiName")
+        setLableUI(ballonLabel)
+        setLableUI(tamagotchiName)
+        setLableUI(tamagotchiStatus)
+        labelView.clipsToBounds = true
+        labelView.layer.cornerRadius = 5
+        labelView.layer.borderColor = fontAndBorderColor.cgColor
+        labelView.layer.borderWidth = 1
+        labelView.backgroundColor = .clear
+        
+        //MARK: Textfeild
+        setTextFieldUI(riceTextField, placeholder: "밥주세용")
+        setTextFieldUI(waterTextField, placeholder: "물주세용")
+        textFieldSectionViews[0].backgroundColor = fontAndBorderColor
+        textFieldSectionViews[1].backgroundColor = fontAndBorderColor
+        
+        
+        //MARK: ButtonUI
+        setButtonUI(buttonsStyle[0], title: "밥먹기", systemImage: "drop.circle")
+        setButtonUI(buttonsStyle[1], title: "물먹기", systemImage: "leaf.circle")
+        
+        /*
+         1. 밥먹기를 그냥 누르면 1씩 올라가고
+         2. 텍스트 필드의 숫자 입력 -> 버튼 한번에 올라감
+         2-1. 숫자만 입력 될 수 있게 만들기 V
+         3. 함수에 담아서 이미지보다 상위에 실행시켜야함 -> 더 간단하게 만들수 잇는 방법생각하기
+         */
+    }
+    
+    func clickedEatButton(_ button: UIButton, textField: UITextField) {
+        
+        tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "lavel")) • 밥알 \(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        
+        ballonLabel.text = UserDefaults.standard.integer(forKey: "lavel") > 99 ? "토..할 것 가 타 요....ㅠ" : randomlabelInballoon()
+        ballonLabel.text = UserDefaults.standard.integer(forKey: "riceCount") > 49 ? "물 배 빵빵 그만그만...!!!!" : randomlabelInballoon()
+        
+        let ricecurrentValue = UserDefaults.standard.integer(forKey: "riceCount")
+        var riceupdateValue = 0
+        let watercurrentValue = UserDefaults.standard.integer(forKey: "waterCount")
+        var waterupdateValue = 0
+        
+        if button.titleLabel?.text == "밥먹기" {
+            if let textField = textField.text, textField.isEmpty {
+                riceupdateValue = ricecurrentValue + 1
+                UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
+                print(riceCount, "ricecount")
+            } else {
+                if let textCount = Int(textField.text!) {
+                    riceupdateValue = ricecurrentValue + textCount
+                    UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
+                    print(riceCount)
+                } else {
+                    ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
+                }
+            }
+        } else {
+            if let textField = textField.text, textField.isEmpty {
+                waterupdateValue = watercurrentValue + 1
+                UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
+                print(waterDropCount, "watercount")
+            } else {
+                if let textCount = Int(textField.text!) {
+                    waterupdateValue = watercurrentValue + textCount
+                    UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
+                    print(waterDropCount)
+                } else {
+                    ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
+                }
+            }
+        }
         // MARK: 계산하기
         let cumulation: Double = Double(UserDefaults.standard.integer(forKey: "riceCount") / 5) + Double(UserDefaults.standard.integer(forKey: "waterCount") / 5)
         
@@ -116,42 +166,61 @@ class MainViewController: UIViewController {
         ballonLabel.text = UserDefaults.standard.integer(forKey: "lavel") > 99 ? "토..할 것 가 타 요....ㅠ" : randomlabelInballoon()
         ballonLabel.text = UserDefaults.standard.integer(forKey: "riceCount") > 49 ? "물 배 빵빵 그만그만...!!!!" : randomlabelInballoon()
         
-        //MARK: 이미지
-        image.image = UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))")
-        
-        //MARK: label
-        tamagotchiName.text = UserDefaults.standard.string(forKey: "UserTamagotchiName")
-        setLableUI(ballonLabel)
-        setLableUI(tamagotchiName)
-        setLableUI(tamagotchiStatus)
-        labelView.clipsToBounds = true
-        labelView.layer.cornerRadius = 5
-        labelView.layer.borderColor = fontAndBorderColor.cgColor
-        labelView.layer.borderWidth = 1
-        labelView.backgroundColor = .clear
-        
-        //MARK: Textfeild
-        setTextFieldUI(riceTextField, placeholder: "밥주세용")
-        setTextFieldUI(waterTextField, placeholder: "물주세용")
-        textFieldSectionViews[0].backgroundColor = fontAndBorderColor
-        textFieldSectionViews[1].backgroundColor = fontAndBorderColor
-        
-        
-        //MARK: ButtonUI
-        setButtonUI(buttonsStyle[0], title: "밥먹기", systemImage: "drop.circle")
-        setButtonUI(buttonsStyle[1], title: "물먹기", systemImage: "leaf.circle")
-        
-        /*
-         1. 밥먹기를 그냥 누르면 1씩 올라가고
-         2. 텍스트 필드의 숫자 입력 -> 버튼 한번에 올라감
-         2-1. 숫자만 입력 될 수 있게 만들기 V
-         3. 함수에 담아서 이미지보다 상위에 실행시켜야함 -> 더 간단하게 만들수 잇는 방법생각하기
-         */
-        
     }
     
-    
+    //
+    //    @IBAction func clickedEatRiceButton(_ sender: UIButton) {
+    //        let ricecurrentValue = UserDefaults.standard.integer(forKey: "riceCount")
+    //        var riceupdateValue = 0
+    //
+    //        guard let riceTextField = riceTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+    //            return }
+    //
+    //        //MARK: 쌀
+    //        if riceTextField.isEmpty {
+    //            riceupdateValue = ricecurrentValue + 1
+    //            UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
+    //            print(riceCount, "ricecount")
+    //        } else {
+    //            guard !riceTextField.isEmpty, let riceTextcount = Int(riceTextField) else {
+    //                return ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
+    //            }
+    //            riceupdateValue = ricecurrentValue + riceTextcount
+    //            UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
+    //            print(riceCount)
+    //        }
+    //    }
+    //
+    //    @IBAction func clicedwaterButton(_ sender: UIButton) {
+    //        let watercurrentValue = UserDefaults.standard.integer(forKey: "waterCount")
+    //        var waterupdateValue = 0
+    //
+    //        guard let waterTextField = waterTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+    //            return }
+    //
+    //        //MARK: 물
+    //        if waterTextField.isEmpty {
+    //            waterupdateValue = watercurrentValue + 1
+    //            UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
+    //            print(waterDropCount, "waterDropCount")
+    //        } else {
+    //            guard !waterTextField.isEmpty, let waterTextcount = Int(waterTextField) else {
+    //                return ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
+    //            }
+    //            waterupdateValue = watercurrentValue + waterTextcount
+    //            UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
+    //            print(waterDropCount)
+    //        }
+    //    }
     // MARK: - 메서드
+    
+    @objc
+    func goSettingTableViewController() {
+        let sb = UIStoryboard(name: "Setting", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SettingTableViewController") as! SettingTableViewController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     //MARK: text UI세팅 메서드
     func setLableUI(_ label: UILabel) {
@@ -189,6 +258,7 @@ class MainViewController: UIViewController {
     func randomlabelInballoon() -> String {
         var labels: [String] = []
         let username = tamagotchiData.username
+        //        UserDefaults.standard.set(username, forKey: "username")
         
         labels = [
             "\(username)님 반가워요!",
