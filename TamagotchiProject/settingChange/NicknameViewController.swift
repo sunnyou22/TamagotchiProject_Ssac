@@ -7,14 +7,27 @@
 
 import UIKit
 
-class NicknameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NicknameViewController: UIViewController {
     let backgountdColor: UIColor = DafaultUISetting.tamaBackgroundColor.setUI()
-    @IBOutlet weak var nameTableView: UITableView!
+    @IBOutlet weak var containView: UIView!
+    @IBOutlet weak var nicknameTextField: UITextField!
+    @IBOutlet weak var sectionView: UIView!
+//    var defaultname = "대장"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgountdColor
+        nicknameUI()
+        nicknameTextField.text = UserDefaults.standard.string(forKey: "username")
+        //초기이름 대장이라고 어떻게 설정할까
+//        if let text = UserDefaults.standard.string(forKey: "username"), text == "" {
+//            nicknameTextField.text = defaultname
+//        } else {
+//        nicknameTextField.text = UserDefaults.standard.string(forKey: "username")
+//        }
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "설정", style: .plain, target: self, action: #selector(goSettingView))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(save))
     }
     
     @objc
@@ -22,21 +35,24 @@ class NicknameViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationController?.popViewController(animated: true)
     }
     
-   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+    @objc
+    func save() {
+        guard let text = nicknameTextField.text, !text.isEmpty, (2...6).contains(text.count) else {
+            return self.view.makeToast("이 이름은 쓸 수 없습니다 ㅇㅅㅇ", duration: 1, position: .center)
+        }
+        UserDefaults.standard.set(text, forKey: "username")
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func nicknameUI() {
+        containView.backgroundColor = .clear
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NicknameTableViewCell") as! NicknameTableViewCell
+        nicknameTextField.borderStyle = .none
+        nicknameTextField.font = .systemFont(ofSize: 14)
+        nicknameTextField.textColor = DafaultUISetting.fontAndBorderColor.setUI()
+        nicknameTextField.backgroundColor = .clear
         
-        cell.nicknameUI()
-        cell.separatorInset = .zero
-        
-        return cell
+        sectionView.backgroundColor = DafaultUISetting.fontAndBorderColor.setUI()
     }
 }

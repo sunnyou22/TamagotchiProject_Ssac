@@ -12,8 +12,6 @@
 		903A612D288D9DC000BD6500 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A612C288D9DC000BD6500 /* SettingTableViewController.swift */; };
 		903A612F288D9FE500BD6500 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A612E288D9FE500BD6500 /* SettingTableViewCell.swift */; };
 		903A6137288E420000BD6500 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A6136288E420000BD6500 /* NicknameViewController.swift */; };
-		903A613D288E4A5B00BD6500 /* NicknameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A613C288E4A5B00BD6500 /* NicknameTableViewController.swift */; };
-		903A613F288E4A7000BD6500 /* NicknameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A613E288E4A7000BD6500 /* NicknameTableViewCell.swift */; };
 		90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */; };
 		90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */; };
 		90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3B4B4288A89C1001F5ACB /* MainViewController.swift */; };
@@ -33,8 +31,6 @@
 		903A612C288D9DC000BD6500 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		903A612E288D9FE500BD6500 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		903A6136288E420000BD6500 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
-		903A613C288E4A5B00BD6500 /* NicknameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameTableViewController.swift; sourceTree = "<group>"; };
-		903A613E288E4A7000BD6500 /* NicknameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameTableViewCell.swift; sourceTree = "<group>"; };
 		90A3B4AD288A89C1001F5ACB /* TamagotchiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamagotchiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,8 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				90A3B4CC288BAA77001F5ACB /* Setting.storyboard */,
-				903A613C288E4A5B00BD6500 /* NicknameTableViewController.swift */,
-				903A613E288E4A7000BD6500 /* NicknameTableViewCell.swift */,
 				903A6136288E420000BD6500 /* NicknameViewController.swift */,
 				903A612E288D9FE500BD6500 /* SettingTableViewCell.swift */,
 				903A612C288D9DC000BD6500 /* SettingTableViewController.swift */,
@@ -211,8 +205,6 @@
 				90A3B4D3288BAC3C001F5ACB /* InitialStartCollectionViewController.swift in Sources */,
 				90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */,
 				903A6128288D10D700BD6500 /* defaultUISetting.swift in Sources */,
-				903A613D288E4A5B00BD6500 /* NicknameTableViewController.swift in Sources */,
-				903A613F288E4A7000BD6500 /* NicknameTableViewCell.swift in Sources */,
 				90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */,
 				90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */,
 				90A3B4D7288BBE7D001F5ACB /* TamagotchiIData.swift in Sources */,

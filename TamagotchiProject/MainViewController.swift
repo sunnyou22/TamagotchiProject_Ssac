@@ -26,10 +26,11 @@ class MainViewController: UIViewController {
     let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
     let viewbackgroundColor = DafaultUISetting.tamaBackgroundColor.setUI()
     
+    //MARK: ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let username = tamagotchiData.username // 이후 유저디폴트로 바꿔주기
-        
+        let username = UserDefaults.standard.string(forKey: "username") ?? "대장" // 이후 유저디폴트로 바꿔주기
+ 
         navigationItem.title = "\(username)님의 다마고치"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(goSettingTableViewController))
         navigationItem.rightBarButtonItem?.tintColor = fontAndBorderColor
@@ -42,7 +43,12 @@ class MainViewController: UIViewController {
         navigationItem.backButtonTitle = ""
         
         //MARK: 이미지
-        image.image = UserDefaults.standard.integer(forKey: "lavel") == 1 ?  UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))") : UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)")
+        // 이름도 이렇게 처리하면 되려나
+        if UserDefaults.standard.bool(forKey: "buttonClick") {
+            image.image = UIImage(named: UserDefaults.standard.string(forKey: "currentImageName") ?? "1-1")
+        } else {
+            image.image = UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-1")
+        }
         
         ballonLabel.text = randomlabelInballoon() // 랜덤 텍스트
         
@@ -97,6 +103,7 @@ class MainViewController: UIViewController {
         var riceupdateValue = 0
         let watercurrentValue = UserDefaults.standard.integer(forKey: "waterCount")
         var waterupdateValue = 0
+        UserDefaults.standard.set(button.isTouchInside, forKey: "buttonClick")
         
         ballonLabel.text = randomlabelInballoon()
         
@@ -166,9 +173,17 @@ class MainViewController: UIViewController {
         tamagotchiStatus.text = "LV\(UserDefaults.standard.integer(forKey: "lavel")) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
       
         //MARK: 이미지
-        image.image = UserDefaults.standard.integer(forKey: "lavel") == 1 ?  UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))") : UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)")
+        let imageName = UserDefaults.standard.integer(forKey: "lavel") == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)"
         
-        print(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
+        image.image = UIImage(named: imageName)
+        UserDefaults.standard.set(imageName, forKey: "currentImageName")
+        
+//
+//        image.image = UserDefaults.standard.integer(forKey: "lavel") == 1 ?  UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))") : UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)")
+//
+//        UserDefaults.standard.string(
+//
+//        print(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
     }
     
     // MARK: - 메서드
@@ -216,7 +231,7 @@ class MainViewController: UIViewController {
     //MARK: 말풍선 대사 랜덤 추출
     func randomlabelInballoon() -> String {
         var labels: [String] = []
-        let username = tamagotchiData.username
+        let username = UserDefaults.standard.string(forKey: "username") ?? "대장"
         //        UserDefaults.standard.set(username, forKey: "username")
         
         labels = [

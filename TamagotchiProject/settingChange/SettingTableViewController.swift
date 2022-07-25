@@ -10,6 +10,7 @@ import UIKit
 class SettingTableViewController: UITableViewController {
     let fontAndBorderColor: UIColor = DafaultUISetting.fontAndBorderColor.setUI()
     let backgrountColor: UIColor = DafaultUISetting.tamaBackgroundColor.setUI()
+    var username: String = "대장"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,12 @@ class SettingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
+        
         cell.backgroundColor = backgrountColor
         cell.separatorInset = .zero
+        
+        
+        
         switch indexPath.row {
         case 0:
             cell.setCellUI(image: "pencil", title: "내 이름 설정하기", name: "유저디폴트")
@@ -70,7 +75,7 @@ class SettingTableViewController: UITableViewController {
         } else if indexPath.row == 2 {
             let alert = UIAlertController(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가용?", preferredStyle: .alert)
             let cancle = UIAlertAction(title: "아냐!", style: .cancel)
-            let ok = UIAlertAction(title: "웅", style: .default) {_ in 
+            let ok = UIAlertAction(title: "웅", style: .default) {_ in
             
                 UserDefaults.standard.removeObject(forKey: "clickedStartButton")
                 UserDefaults.standard.removeObject(forKey: "UserTamagotchiName")
@@ -79,18 +84,27 @@ class SettingTableViewController: UITableViewController {
                 UserDefaults.standard.set(1, forKey: "lavel")
                 UserDefaults.standard.removeObject(forKey: "riceCount")
                 UserDefaults.standard.removeObject(forKey: "waterCount")
+                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.removeObject(forKey: "currentImageName")
                 
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDeleate = windowScene?.delegate as? SceneDelegate
             let sb = UIStoryboard(name: "InitialStart", bundle: nil)
             let vc  = sb.instantiateViewController(withIdentifier: "InitialStartCollectionViewController") as! InitialStartCollectionViewController
             let nav = UINavigationController(rootViewController: vc)
+                
+                //샤라락 화면 전환 왜 안될까
+                nav.modalPresentationStyle = .fullScreen
+                nav.modalTransitionStyle = .crossDissolve
+                
             sceneDeleate?.window?.rootViewController = nav
             sceneDeleate?.window?.makeKeyAndVisible()
             }
                 alert.addAction(cancle)
                 alert.addAction(ok)
             present(alert, animated: true)
+        } else {
+            print("오류입니다")
         }
     }
 

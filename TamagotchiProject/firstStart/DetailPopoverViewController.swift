@@ -78,6 +78,7 @@ class DetailPopoverViewController: UIViewController {
         UserDefaults.standard.set(sender.isTouchInside, forKey: "clickedStartButton")
         UserDefaults.standard.set(tamagotchiData?.name, forKey: "UserTamagotchiName")
         UserDefaults.standard.set(tamagotchiData?.imageNumber, forKey: "UserTamagotchImageNumber")
+        UserDefaults.standard.set(1, forKey: "lavel")
         
         // 화면 초기화
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
