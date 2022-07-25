@@ -20,9 +20,9 @@ class SettingTableViewController: UITableViewController {
         barAppearance.backgroundColor = backgrountColor
         navigationItem.scrollEdgeAppearance = barAppearance
         
-//        navigationItem.backButtonTitle = ""
-//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(goMainViewController))
-//        navigationItem.leftBarButtonItem?.tintColor = fontAndBorderColor
+        //        navigationItem.backButtonTitle = ""
+        //        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(goMainViewController))
+        //        navigationItem.leftBarButtonItem?.tintColor = fontAndBorderColor
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,7 +36,7 @@ class SettingTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             cell.setCellUI(image: "pencil", title: "내 이름 설정하기", name: "유저디폴트")
-            case 1:
+        case 1:
             cell.setCellUI(image: "moon.fill", title: "다마고치 변경하기", name: "")
         case 2:
             cell.setCellUI(image: "arrow.clockwise", title: "데이터 초기화", name: "")
@@ -52,30 +52,50 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
         
-        
         if indexPath.row == 0 {
             let sb = UIStoryboard(name: "Setting", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "NicknameViewController") as! NicknameViewController
             
             self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 1 {
+            let sb = UIStoryboard(name: "InitialStart", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "InitialStartCollectionViewController") as! InitialStartCollectionViewController
+            let nav = UINavigationController(rootViewController: vc)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            UserDefaults.standard.set(cell.isSelected, forKey: "changeTamagotchi")
+            
+            vc.navigationItem.title = "다마고치 변경하기"
+            nav.navigationItem.backBarButtonItem = UIBarButtonItem(title: "설정", style: .plain, target: self, action:  #selector(goMainViewController))
+        } else if indexPath.row == 2 {
+            let alert = UIAlertController(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가용?", preferredStyle: .alert)
+            let cancle = UIAlertAction(title: "아냐!", style: .cancel)
+            let ok = UIAlertAction(title: "웅", style: .default) {_ in 
+            
+                UserDefaults.standard.removeObject(forKey: "clickedStartButton")
+                UserDefaults.standard.removeObject(forKey: "UserTamagotchiName")
+                UserDefaults.standard.removeObject(forKey: "UserTamagotchImageNumber")
+                UserDefaults.standard.removeObject(forKey: "changeTamagotchi")
+                UserDefaults.standard.set(1, forKey: "lavel")
+                UserDefaults.standard.removeObject(forKey: "riceCount")
+                UserDefaults.standard.removeObject(forKey: "waterCount")
+                
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDeleate = windowScene?.delegate as? SceneDelegate
+            let sb = UIStoryboard(name: "InitialStart", bundle: nil)
+            let vc  = sb.instantiateViewController(withIdentifier: "InitialStartCollectionViewController") as! InitialStartCollectionViewController
+            let nav = UINavigationController(rootViewController: vc)
+            sceneDeleate?.window?.rootViewController = nav
+            sceneDeleate?.window?.makeKeyAndVisible()
+            }
+                alert.addAction(cancle)
+                alert.addAction(ok)
+            present(alert, animated: true)
         }
-//        
-//        case 1:
-//        let sb = UIStoryboard(name: "InitialStart", bundle: nil)
-//            let vc = sb.instantiateViewController(withIdentifier: "InitialStartCollectionViewController") as! InitialStartCollectionViewController
-//            let nav = UINavigationController(rootViewController: vc)
-//            self.navigationController?.pushViewController(vc, animated: true)
-//            
-//            UserDefaults.standard.set(cell.isSelected, forKey: "changeTamagotchi")
-//                
-//            vc.navigationItem.title = "다마고치 변경하기"
-//            nav.navigationItem.backBarButtonItem = UIBarButtonItem(title: "설정", style: .plain, target: self, action:  #selector(goMainViewController))
-//        default: 2
-//        }
     }
-    
-    @objc
-    func goMainViewController() {
-        self.navigationController?.popViewController(animated: true)
-    }
+
+@objc
+func goMainViewController() {
+    self.navigationController?.popViewController(animated: true)
+}
 }

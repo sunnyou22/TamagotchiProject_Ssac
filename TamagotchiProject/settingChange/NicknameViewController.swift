@@ -9,15 +9,20 @@ import UIKit
 
 class NicknameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let backgountdColor: UIColor = DafaultUISetting.tamaBackgroundColor.setUI()
-    
     @IBOutlet weak var nameTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgountdColor
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "설정", style: .plain, target: self, action: #selector(goSettingView))
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    @objc
+    func goSettingView() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
     

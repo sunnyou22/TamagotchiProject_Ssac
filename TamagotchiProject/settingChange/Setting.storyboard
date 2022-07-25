@@ -17,38 +17,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SettingTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingTableViewCell" textLabel="7yr-Qg-nGd" detailTextLabel="OLZ-gJ-gnl" imageView="t7z-FZ-BEn" style="IBUITableViewCellStyleValue1" id="BKF-ts-iMq" customClass="SettingTableViewCell" customModule="TamagotchiProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SettingTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingTableViewCell" rowHeight="60" id="BKF-ts-iMq" customClass="SettingTableViewCell" customModule="TamagotchiProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BKF-ts-iMq" id="ufN-Hf-KnW">
-                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7yr-Qg-nGd">
-                                            <rect key="frame" x="51.5" y="15" width="25" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OLZ-gJ-gnl">
-                                            <rect key="frame" x="344.5" y="15" width="33" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="chevron.backward" catalog="system" id="t7z-FZ-BEn">
-                                            <rect key="frame" x="24" y="13.5" width="12.5" height="16.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KbC-qx-kdd">
+                                            <rect key="frame" x="20" y="16" width="28" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="KbC-qx-kdd" secondAttribute="height" id="zz0-Zj-tLI"/>
+                                            </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enw-rS-iP2">
+                                            <rect key="frame" x="64" y="19.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQ6-IV-fsq">
+                                            <rect key="frame" x="335.5" y="19.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KbC-qx-kdd" firstAttribute="leading" secondItem="ufN-Hf-KnW" secondAttribute="leading" constant="20" id="3f9-Ty-5cf"/>
+                                        <constraint firstAttribute="bottom" secondItem="KbC-qx-kdd" secondAttribute="bottom" constant="16" id="KNp-lJ-TtY"/>
+                                        <constraint firstItem="enw-rS-iP2" firstAttribute="leading" secondItem="KbC-qx-kdd" secondAttribute="trailing" constant="16" id="Tfq-pL-me1"/>
+                                        <constraint firstAttribute="trailing" secondItem="MQ6-IV-fsq" secondAttribute="trailing" constant="8" id="Wbz-uc-tZt"/>
+                                        <constraint firstItem="MQ6-IV-fsq" firstAttribute="centerY" secondItem="enw-rS-iP2" secondAttribute="centerY" id="kvv-77-QBi"/>
+                                        <constraint firstItem="KbC-qx-kdd" firstAttribute="top" secondItem="ufN-Hf-KnW" secondAttribute="top" constant="16" id="oUZ-aN-uW1"/>
+                                        <constraint firstItem="enw-rS-iP2" firstAttribute="centerY" secondItem="KbC-qx-kdd" secondAttribute="centerY" id="zra-wn-X4D"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <outlet property="settingImage" destination="t7z-FZ-BEn" id="UG7-HZ-Epl"/>
-                                    <outlet property="settingTiltle" destination="7yr-Qg-nGd" id="w96-yt-2qS"/>
-                                    <outlet property="username" destination="OLZ-gJ-gnl" id="9GF-pu-PFl"/>
+                                    <outlet property="settingImage" destination="KbC-qx-kdd" id="j5X-r8-tEB"/>
+                                    <outlet property="settingTiltle" destination="enw-rS-iP2" id="f5Y-5R-XU4"/>
+                                    <outlet property="username" destination="MQ6-IV-fsq" id="7Vw-Gr-krE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -61,7 +70,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oir-DB-5hw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="442" y="-550"/>
+            <point key="canvasLocation" x="134.78260869565219" y="-587.27678571428567"/>
         </scene>
         <!--Nickname View Controller-->
         <scene sceneID="ucy-qJ-kKI">
@@ -145,7 +154,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
