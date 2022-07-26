@@ -12,20 +12,15 @@ class NicknameViewController: UIViewController {
     @IBOutlet weak var containView: UIView!
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var sectionView: UIView!
-    var sample = "대장"
+    var username = "대장" // 초기값 및 바뀌는 닉네임을 담아줄 변수
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let defaultName = UserDefaults.standard.string(forKey: "")
-//        nicknameTextField.text = "대장"
-        
-        
-        
-        UserDefaults.standard.set(sample, forKey: "username")
-        nicknameTextField.text = sample
-//        UserDefaults.standard.set(sample, forKey: "username")
-        
+
+        UserDefaults.standard.set(username, forKey: "username") // 키벨류 초기 세팅
+        nicknameTextField.text = username // 텍스트필트에 유저네임을 나타나도록하기, 버튼을 클릭하면 변경된 유저네임을 넣어줌
+
         view.backgroundColor = backgountdColor
         
         nicknameUI()
@@ -33,12 +28,7 @@ class NicknameViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "설정", style: .plain, target: self, action: #selector(goSettingView))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(save))
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
+   
     @objc
     func goSettingView() {
         self.navigationController?.popViewController(animated: true)
@@ -51,10 +41,11 @@ class NicknameViewController: UIViewController {
             return
         }
         
-        sample = nicknameTextField.text!
-//        UserDefaults.standard.value(forKey: "username") as! String //* 다른방법
-        UserDefaults.standard.set(sample, forKey: "username")
-        print(sample)
+        // 저장버튼을 누르면 유저네임에 텍스트 필드에 입력된 값을 넣어줌
+        username = nicknameTextField.text!
+//        UserDefaults.standard.value(forKey: "username") as! String //* 다른방법 타입캐스팅
+        UserDefaults.standard.set(username, forKey: "username") // 변경된 값을 다시 넣어줌
+        print(username)
         self.navigationController?.popViewController(animated: true)
     }
     
