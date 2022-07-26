@@ -90,7 +90,7 @@ class SettingTableViewController: UITableViewController {
                 UserDefaults.standard.removeObject(forKey: "UserTamagotchiName")
                 UserDefaults.standard.removeObject(forKey: "UserTamagotchImageNumber")
                 UserDefaults.standard.removeObject(forKey: "changeTamagotchi")
-                UserDefaults.standard.set(1, forKey: "lavel")
+                UserDefaults.standard.set(1, forKey: "level")
                 UserDefaults.standard.removeObject(forKey: "riceCount")
                 UserDefaults.standard.removeObject(forKey: "waterCount")
                 UserDefaults.standard.removeObject(forKey: "username")

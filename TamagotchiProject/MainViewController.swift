@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     
     //MARK: 프로퍼티
     var tamagotchiData: Tamagotchi = Tamagotchi(name: UserDefaults.standard.string(forKey: "UserTamagotchiName") ?? "아무개 다마고치", description: "", imageNumber: UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
-    var lavel: Int = 1// 이미지별로 다른 거 확인
+    var level: Int = 1// 이미지별로 다른 거 확인
     var riceCount = 0
     var waterDropCount = 0
     let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
@@ -61,11 +61,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         //MARK: view 배경색
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
-        tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "lavel")) • 밥알 \(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "level")) • 밥알 \(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
         
         //MARK: label
         tamagotchiName.text = UserDefaults.standard.string(forKey: "UserTamagotchiName")
@@ -143,43 +143,43 @@ class MainViewController: UIViewController {
         // MARK: 계산하기
         let cumulation: Double = Double(UserDefaults.standard.integer(forKey: "riceCount") / 5) + Double(UserDefaults.standard.integer(forKey: "waterCount") / 5)
         
-        UserDefaults.standard.integer(forKey: "lavel")
+        UserDefaults.standard.integer(forKey: "level")
         
         switch cumulation {
         case 0..<10.0:
-            UserDefaults.standard.set(1, forKey: "lavel")
+            UserDefaults.standard.set(1, forKey: "level")
         case 10.0..<20.0:
-            UserDefaults.standard.set(2, forKey: "lavel")
+            UserDefaults.standard.set(2, forKey: "level")
         case 20.0..<30.0:
-            UserDefaults.standard.set(3, forKey: "lavel")
+            UserDefaults.standard.set(3, forKey: "level")
         case 30.0..<40.0:
-            UserDefaults.standard.set(4, forKey: "lavel")
+            UserDefaults.standard.set(4, forKey: "level")
         case 40.0..<50.0:
-            UserDefaults.standard.set(5, forKey: "lavel")
+            UserDefaults.standard.set(5, forKey: "level")
         case 50.0..<60.0:
-            UserDefaults.standard.set(6, forKey: "lavel")
+            UserDefaults.standard.set(6, forKey: "level")
         case 60.0..<70.0:
-            UserDefaults.standard.set(7, forKey: "lavel")
+            UserDefaults.standard.set(7, forKey: "level")
         case 70.0..<80.0:
-            UserDefaults.standard.set(8, forKey: "lavel")
+            UserDefaults.standard.set(8, forKey: "level")
         case 80.0..<90.0:
-            UserDefaults.standard.set(9, forKey: "lavel")
+            UserDefaults.standard.set(9, forKey: "level")
         case 90..<100.0:
-            UserDefaults.standard.set(10, forKey: "lavel")
+            UserDefaults.standard.set(10, forKey: "level")
         default:
-            UserDefaults.standard.set(10, forKey: "lavel")
+            UserDefaults.standard.set(10, forKey: "level")
         }
         
-        tamagotchiStatus.text = "LV\(UserDefaults.standard.integer(forKey: "lavel")) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        tamagotchiStatus.text = "LV\(UserDefaults.standard.integer(forKey: "level")) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
       
         //MARK: 이미지
-        let imageName = UserDefaults.standard.integer(forKey: "lavel") == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)"
+        let imageName = UserDefaults.standard.integer(forKey: "level") == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "level"))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "level") - 1)"
         
         image.image = UIImage(named: imageName)
         UserDefaults.standard.set(imageName, forKey: "currentImageName")
         
 //
-//        image.image = UserDefaults.standard.integer(forKey: "lavel") == 1 ?  UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))") : UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)")
+//        image.image = UserDefaults.standard.integer(forKey: "level") == 1 ?  UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "level"))") : UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "level") - 1)")
 //
 //        UserDefaults.standard.string(
 //
