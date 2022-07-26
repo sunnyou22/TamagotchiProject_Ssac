@@ -164,10 +164,10 @@ class MainViewController: UIViewController {
             UserDefaults.standard.set(8, forKey: "lavel")
         case 80.0..<90.0:
             UserDefaults.standard.set(9, forKey: "lavel")
-        case 100.0...:
+        case 90..<100.0:
             UserDefaults.standard.set(10, forKey: "lavel")
         default:
-            UserDefaults.standard.set(0, forKey: "lavel")
+            UserDefaults.standard.set(10, forKey: "lavel")
         }
         
         tamagotchiStatus.text = "LV\(UserDefaults.standard.integer(forKey: "lavel")) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"

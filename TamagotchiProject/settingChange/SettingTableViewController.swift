@@ -10,11 +10,14 @@ import UIKit
 class SettingTableViewController: UITableViewController {
     let fontAndBorderColor: UIColor = DafaultUISetting.fontAndBorderColor.setUI()
     let backgrountColor: UIColor = DafaultUISetting.tamaBackgroundColor.setUI()
-    var username: String = "대장"
+//    var newname = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgrountColor
+
+        navigationController?.navigationBar.tintColor = fontAndBorderColor
+
         navigationItem.title = "설정"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : fontAndBorderColor]
         let barAppearance = UINavigationBarAppearance()
@@ -24,6 +27,11 @@ class SettingTableViewController: UITableViewController {
         //        navigationItem.backButtonTitle = ""
         //        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(goMainViewController))
         //        navigationItem.leftBarButtonItem?.tintColor = fontAndBorderColor
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData() // 무족건....
+        print(#function)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,18 +43,19 @@ class SettingTableViewController: UITableViewController {
         
         cell.backgroundColor = backgrountColor
         cell.separatorInset = .zero
-        
-        
-        
+    
+        //생명주기로 고민해보기(스레드오류)
         switch indexPath.row {
+
         case 0:
-            cell.setCellUI(image: "pencil", title: "내 이름 설정하기", name: "유저디폴트")
+            cell.setCellUI(image: "pencil", title: "내 이름 설정하기", name: UserDefaults.standard.string(forKey: "username")!)
         case 1:
             cell.setCellUI(image: "moon.fill", title: "다마고치 변경하기", name: "")
         case 2:
             cell.setCellUI(image: "arrow.clockwise", title: "데이터 초기화", name: "")
         default: cell.setCellUI(image: "xmark", title: "미지정셀입니다.", name: "")
         }
+        
         return cell
     }
     
@@ -55,11 +64,14 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
+        
+
         
         if indexPath.row == 0 {
             let sb = UIStoryboard(name: "Setting", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "NicknameViewController") as! NicknameViewController
+//            newname = vc.newName
             
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 1 {
@@ -68,7 +80,7 @@ class SettingTableViewController: UITableViewController {
             let nav = UINavigationController(rootViewController: vc)
             self.navigationController?.pushViewController(vc, animated: true)
             
-            UserDefaults.standard.set(cell.isSelected, forKey: "changeTamagotchi")
+//            UserDefaults.standard.set(cell, forKey: "changeTamagotchi")
             
             vc.navigationItem.title = "다마고치 변경하기"
             nav.navigationItem.backBarButtonItem = UIBarButtonItem(title: "설정", style: .plain, target: self, action:  #selector(goMainViewController))
