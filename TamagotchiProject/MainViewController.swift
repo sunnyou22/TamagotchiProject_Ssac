@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     
     //MARK: 프로퍼티
     var tamagotchiData: Tamagotchi = Tamagotchi(name: UserDefaults.standard.string(forKey: "UserTamagotchiName") ?? "아무개 다마고치", description: "", imageNumber: UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
-    var level: Int = 1// 이미지별로 다른 거 확인
+//    var level: Int = 1// 이미지별로 다른 거 확인
     var riceCount = 0
     var waterDropCount = 0
     let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
@@ -113,7 +113,7 @@ class MainViewController: UIViewController {
                 UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
                 print(riceCount, "ricecount")
             } else {
-                if let textCount = Int(textField.text!), textCount < 100 {
+                if let textCount = Int(textField.text!), textCount < 100, textCount >= 0 {
                     riceupdateValue = ricecurrentValue + textCount
                     UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
                     print(riceCount)
@@ -129,7 +129,7 @@ class MainViewController: UIViewController {
                 UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
                 print(waterDropCount, "watercount")
             } else {
-                if let textCount = Int(textField.text!), textCount < 50 {
+                if let textCount = Int(textField.text!), textCount < 50, textCount >= 0 {
                     waterupdateValue = watercurrentValue + textCount
                     UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
                     print(waterDropCount)
@@ -140,10 +140,32 @@ class MainViewController: UIViewController {
                 }
             }
         }
-        // MARK: 계산하기
-        let cumulation: Double = Double(UserDefaults.standard.integer(forKey: "riceCount") / 5) + Double(UserDefaults.standard.integer(forKey: "waterCount") / 5)
+        let ricecount = UserDefaults.standard.integer(forKey: "riceCount") / 5
+        let watercount = UserDefaults.standard.integer(forKey: "waterCount") / 5
         
+        
+        // MARK: 계산하기
+        var cumulation: Double {
+            Double(ricecount) + Double(watercount)
+        }
+      
+        
+        var level: Int {
+            switch cumulation {
+            case 0:
+                return 1
+            case 100...:
+                return 10
+            default: // cumulation % 10 가 안되는 이유로는 
+                return Int(cumulation.truncatingRemainder(dividingBy: 10.0) == 0 ? cumulation / 10 : (cumulation / 10) + 1)
+            }
+        }
+            
+            
         UserDefaults.standard.integer(forKey: "level")
+        
+        
+        
         
         switch cumulation {
         case 0..<10.0:
