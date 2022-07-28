@@ -10,9 +10,13 @@ import UIKit
 class NicknameViewController: UIViewController {
     let backgountdColor: UIColor = DafaultUISetting.tamaBackgroundColor.setUI()
     @IBOutlet weak var containView: UIView!
-    @IBOutlet weak var nicknameTextField: UITextField!
+    @IBOutlet weak var nicknameTextField: UITextField! {
+        didSet {
+            nicknameTextField.text = "대장"
+        }
+    }
     @IBOutlet weak var sectionView: UIView!
-    var username = "대장" // 초기값 및 바뀌는 닉네임을 담아줄 변수
+    var username: String = "대장"
     
     
     override func viewDidLoad() {

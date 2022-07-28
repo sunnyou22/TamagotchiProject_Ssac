@@ -64,6 +64,7 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
         // cell을 선언해주지 않고 변경하기 버튼을 누른 상태를 저장해주려면?
+        tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .fade)
         
         if indexPath.row == 0 {
             let sb = UIStoryboard(name: "Setting", bundle: nil)
