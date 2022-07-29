@@ -41,6 +41,7 @@ class SettingTableViewController: UITableViewController {
         cell.backgroundColor = backgrountColor
         cell.separatorInset = .zero
         cell.setSelected(false, animated: false)
+        cell.selectionStyle = .none
         
         //생명주기로 고민해보기(스레드오류)
         switch indexPath.row {
