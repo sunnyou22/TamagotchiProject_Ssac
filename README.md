@@ -45,14 +45,35 @@
 ## 트러블 슈핑(개인 fix)
 
 ### 설정창에서 셀 클릭시 스토리보드상 셀의 이미지 나오는 것
+<img style="max-width: 100%; height: auto;" src="https://drive.google.com/uc?export=view&id=1_yx8jAGHmc5qr_LlC9ymyP2XYRqVcJzC" >
 
+- 셀에 클릭이 생기고 상태가 바뀌는데 reload를 걸어주지 않아 스토리보드상의 UI가 계속 보이는 것이었다.
+처음에는 아래처럼 전체 셀에 reload를 걸어줬다. 하지만 해당 뷰에서 클릭이 발생하여 alert창이 떠있을 때는 viewWillAppear가 실행되지 않았는데 셀의 상태가 변경됐으므로  
+alert창이 떠있을 때 스토리보드상의 셀UI가 나타난다. 때문에 두번째 코드블럭처럼 작성해야 셀의 모든 상태 변화에 대응할 수 있다. 
+```
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData() // 변경한 값으로 바꿔주고 싶으면 무족건....
+        //        print(#function)
+    }
+```
 
+```
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
+        // cell을 선언해주지 않고 변경하기 버튼을 누른 상태를 저장해주려면?
+        tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .fade)
+```
+- 시점을 잘 파악하여 화면과 데이터변화를 연결시켜주자.
 
-
-
-- 다른 다마고치로 바꿨을 때 레벨이 1로 변하고 버튼을 클릭하면 기존의 레벨ㄹ 돌아옴
-
-
+### 자잘한 부분
+- 변경하기 버튼을 누르고 다마고치를 변경하면 레벨이 처음 로드됐을 때 1로 변함 -> level, lavel 섞어서 사용하여 초기값이 고정값으로 들어가는 등..
+- 셀의 상태가 바뀔 때마다(클릭도 포함) reload필수 -> 전체를 reload할 지 부분적인 cell을 reload해줄지 따져서 효율적으로 재세팅해줘야함
+- root뷰는 처음 로드될 때 이후로 viewWillAppear이기 때문에 시점을 잘 파악해야한다.
+- 디버깅 (breakPoint) 및 print문으로 실행 시점을 알기 좋음
+- cellRowAt과 didSelectRowAt은 한 셀마다 적용되는 것이니까 cell 전체에 적용할 코드가 없다면 그냥 index로 해줘도 괜찮다
+- 무언가 안 바뀔 때는 시점이 맞는지, 고정값으로 어디에 해두지 않았는지 확인하기 -> 유저이름이 안 바뀌는 문제
+- 클릭 뒤 셀이 회색인 이유는 오류가 아니라 선택된 상태를 의미하는 거였다 -> 먼저 속성값이 의도한 대로 맞춰져있는지 확인하자
+    `cell.setSelected(false, animated: false)` 이거 작성해주면 됨
 ---
 # 다마고치 소회
 ## 과제 기한이 끝났는데 나는 끝나지 않은. 
@@ -75,28 +96,7 @@
 
 리팩토링하면서 또 나를 많이 원망할 것 같다 내 뇌와 손구락 반성해...  
 
-_궁금한 점과 과제 설계 및 과정 작성예정_
+_궁금한 점과 과제 설계 및 과정 추가 작성예정_
 
-----
-
-refactor하면서 새롭게 알게된 지점
-- reload해줘야함 -> 이름을 바꾸면 셀에 반영이 안된는 문재ㅔ
-- 데이터를 따로 담아주는게 좋음
-- root뷰는 처음 로드될 때 이후로 willApear
-- 디버깅
-- cellRowAt과 didSelectRowAt은 한 셀마다 적용되는 것이니까 cell 전체에 적용할 코드가 없다면 그냥 index로 해줘도 괜찮음
-- 무언가 안 바뀔 때는 시점이 맞는지, 고정값으로 어디에 해두지 않았는지 확인하기 -> 두번째 이름이 바뀌는 문제
-- 그리고 셀이 회색이었던거는 선택된 상태를 의미하는 거였음..오류가 아니라,,  
-    `cell.setSelected(false, animated: false)` 이거 작성해주면 됨 -> 셀색이 선택하면 회색인 이유
-- 셀의 내용이 변경이 되면 무조건 reload해줘야함(뷰를 재 세팅해줌)
-
-
-추가 변경해야하는 사항
-- 변경하기 버튼을 누르고 다마고치를 변경하면 레벨이 처음 로드됐을 때 1임 -> level, lavel 섞어서 사용 내 손꾸락...반성해...
-
-### 개인 fix
-- 이르 반영 안됨
-- 설정창에서 셀 클릭시 스토리보드상 셀의 이미지 나오는 것
-- 다른 다마고치로 바꿨을 때 레벨이 1로 변하고 버튼을 클릭하면 기존의 레벨ㄹ 돌아옴
 
 
