@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     
     //MARK: 프로퍼티
     var tamagotchiData: Tamagotchi = Tamagotchi(name: UserDefaults.standard.string(forKey: "UserTamagotchiName") ?? "아무개 다마고치", description: "", imageNumber: UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
-    var lavel: Int = 1// 이미지별로 다른 거 확인
+//    var level: Int = 1// 이미지별로 다른 거 확인
     var riceCount = 0
     var waterDropCount = 0
     let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
@@ -61,11 +61,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         //MARK: view 배경색
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
-        tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "lavel")) • 밥알 \(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "level")) • 밥알 \(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
         
         //MARK: label
         tamagotchiName.text = UserDefaults.standard.string(forKey: "UserTamagotchiName")
@@ -113,7 +113,7 @@ class MainViewController: UIViewController {
                 UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
                 print(riceCount, "ricecount")
             } else {
-                if let textCount = Int(textField.text!), textCount < 100 {
+                if let textCount = Int(textField.text!), textCount < 100, textCount >= 0 {
                     riceupdateValue = ricecurrentValue + textCount
                     UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
                     print(riceCount)
@@ -129,7 +129,7 @@ class MainViewController: UIViewController {
                 UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
                 print(waterDropCount, "watercount")
             } else {
-                if let textCount = Int(textField.text!), textCount < 50 {
+                if let textCount = Int(textField.text!), textCount < 50, textCount >= 0 {
                     waterupdateValue = watercurrentValue + textCount
                     UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
                     print(waterDropCount)
@@ -140,50 +140,34 @@ class MainViewController: UIViewController {
                 }
             }
         }
+        let ricecount = UserDefaults.standard.integer(forKey: "riceCount") / 5
+        let watercount = UserDefaults.standard.integer(forKey: "waterCount") / 5
+        
+        
         // MARK: 계산하기
-        let cumulation: Double = Double(UserDefaults.standard.integer(forKey: "riceCount") / 5) + Double(UserDefaults.standard.integer(forKey: "waterCount") / 5)
+        var cumulation: Double {
+            Double(ricecount) + Double(watercount)
+        }
+      
         
-        UserDefaults.standard.integer(forKey: "lavel")
-        
-        switch cumulation {
-        case 0..<10.0:
-            UserDefaults.standard.set(1, forKey: "lavel")
-        case 10.0..<20.0:
-            UserDefaults.standard.set(2, forKey: "lavel")
-        case 20.0..<30.0:
-            UserDefaults.standard.set(3, forKey: "lavel")
-        case 30.0..<40.0:
-            UserDefaults.standard.set(4, forKey: "lavel")
-        case 40.0..<50.0:
-            UserDefaults.standard.set(5, forKey: "lavel")
-        case 50.0..<60.0:
-            UserDefaults.standard.set(6, forKey: "lavel")
-        case 60.0..<70.0:
-            UserDefaults.standard.set(7, forKey: "lavel")
-        case 70.0..<80.0:
-            UserDefaults.standard.set(8, forKey: "lavel")
-        case 80.0..<90.0:
-            UserDefaults.standard.set(9, forKey: "lavel")
-        case 100.0...:
-            UserDefaults.standard.set(10, forKey: "lavel")
-        default:
-            UserDefaults.standard.set(0, forKey: "lavel")
+        var level: Int {
+            switch cumulation {
+            case 0:
+                return 1
+            case 100...:
+                return 10
+            default: // cumulation % 10 가 안되는 이유로는 
+                return Int(cumulation.truncatingRemainder(dividingBy: 10.0) == 0 ? cumulation / 10 : (cumulation / 10) + 1)
+            }
         }
         
-        tamagotchiStatus.text = "LV\(UserDefaults.standard.integer(forKey: "lavel")) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        tamagotchiStatus.text = "LV\(level) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
       
         //MARK: 이미지
-        let imageName = UserDefaults.standard.integer(forKey: "lavel") == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)"
+        let imageName = level == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level - 1)"
         
         image.image = UIImage(named: imageName)
         UserDefaults.standard.set(imageName, forKey: "currentImageName")
-        
-//
-//        image.image = UserDefaults.standard.integer(forKey: "lavel") == 1 ?  UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel"))") : UIImage(named: "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(UserDefaults.standard.integer(forKey: "lavel") - 1)")
-//
-//        UserDefaults.standard.string(
-//
-//        print(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
     }
     
     // MARK: - 메서드
