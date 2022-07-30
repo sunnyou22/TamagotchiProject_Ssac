@@ -1,5 +1,52 @@
 # 다마고치 키우기 👾
 
+## 프로젝트 설명
+다마고치에게 밥알과 물을 줘서 레벨업을 해보자
+
+- 선택하기 화면
+  - 선택하기 화면에서 원하는 다마고치를 선택한다.
+  - 다마고치를 선택하면 앱의 초기화면이 메인화면으로 바뀐다.
+- 메인화면
+  - 텍스트 필드가 비어있을 때 밥먹기 물먹기 버튼을 누르면 +1 씩 먹을 수 있다.
+  - 반면 텍스트 필드에 먹이고 싶은 갯수를 기입하면 그 만큼 먹는다. 단 일정수준 이상의 밥알과 물은 한 번에 먹을 수 없다.
+  - 다마고치의 말풍선은 앱을 켰을 때, 무언가를 먹을 때만 바뀐다.
+- 설정창
+  - 유저 네임을 바꿀 수 있다. 기본네임은 "대장"이다. 
+      - 이름은 2글자 이상 6글자 이하이다.
+      - 유저 네임은 메인화면 타이틀, 네임화면 말풍선, 설정창에서 유지된다.
+  - 다마고치를 변경할 수 있는데 캐릭터를 변경할 뿐 데이터는 유지된다.
+  - 다마고치 게임을 초기화 할 수 있다. 데이터가 초기화 된다. 
+
+## 개발 환경
+- iOS15로 설정 / 아이패드 고려 안함
+- MacBook Air (M1, 2020)
+- Language : swift
+- Framwork : UIKit, Foundation
+- Add Library : [Toast]("https://github.com/scalessec/Toast-Swift")
+
+## 폴더 구성 및 화면구성
+### InitialStart
+- InitialStart : 초기화면 및 팝업화면 스토리보드
+- InitialStartCollectionViewController : 초기 다마고치 선택화면
+-  InitialStartCollectionViewCell : 선택화면에 대한 cell
+- DetailPopoverViewController : 선택이후 다마고치 팝업화면(시작하기버튼 및 취소)
+- TamagotchiIData : 다마고치에 대한 기본정보를 담은 
+### main
+- 메인화면을 위한 스토리보드 및 뷰컨
+### settingChange
+- Setting : 설정창 스토리보드 및 유저네임 변경화면
+- NicknameViewController : 이름변경 화면
+- SettingTableViewController : 설정화면 
+### 화면구성
+<img src="https://drive.google.com/file/d/1jjZIpDnbj9-szkf4PdhBJkX3SOKuiwgP/view?usp=sharing" width="400" height="160">
+
+---
+
+
+
+
+---
+# 다마고치 소회
 ## 과제 기한이 끝났는데 나는 끝나지 않은. 
 과제를 하면서 이걸 내가 해결할 수 있을까...하다가 몇시간뒤에 어찌어찌 해결하는 상황의 반복이었다.  
 점점 일단 빌드가 되게만 하자라는 마인드로 임하게됐다.  
