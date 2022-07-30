@@ -38,7 +38,7 @@
 - NicknameViewController : 이름변경 화면
 - SettingTableViewController : 설정화면 
 ### 화면구성
-<img src="https://drive.google.com/uc?export=view&id=1jjZIpDnbj9-szkf4PdhBJkX3SOKuiwgP" width="400" height="160">
+<img src="https://drive.google.com/uc?export=view&id=1jjZIpDnbj9-szkf4PdhBJkX3SOKuiwgP" width="500" height="220">
 
 ---
 
