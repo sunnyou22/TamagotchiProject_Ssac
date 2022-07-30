@@ -113,8 +113,8 @@
 			children = (
 				90A3B4CC288BAA77001F5ACB /* Setting.storyboard */,
 				903A6136288E420000BD6500 /* NicknameViewController.swift */,
-				903A612E288D9FE500BD6500 /* SettingTableViewCell.swift */,
 				903A612C288D9DC000BD6500 /* SettingTableViewController.swift */,
+				903A612E288D9FE500BD6500 /* SettingTableViewCell.swift */,
 			);
 			path = settingChange;
 			sourceTree = "<group>";
