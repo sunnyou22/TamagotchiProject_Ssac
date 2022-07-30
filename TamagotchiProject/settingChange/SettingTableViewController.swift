@@ -31,7 +31,6 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData() // 변경한 값으로 바꿔주고 싶으면 무족건....
         //        print(#function)
     }
     

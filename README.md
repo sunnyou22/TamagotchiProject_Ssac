@@ -22,7 +22,7 @@
 - MacBook Air (M1, 2020)
 - Language : swift
 - Framwork : UIKit, Foundation
-- Add Library : [Toast]("https://github.com/scalessec/Toast-Swift")
+- Add Library : [Toast](https://github.com/scalessec/Toast-Swift)
 
 ## 폴더 구성 및 화면구성
 ### InitialStart
@@ -42,7 +42,15 @@
 
 ---
 
+## 트러블 슈핑(개인 fix)
 
+### 설정창에서 셀 클릭시 스토리보드상 셀의 이미지 나오는 것
+
+
+
+
+
+- 다른 다마고치로 바꿨을 때 레벨이 1로 변하고 버튼을 클릭하면 기존의 레벨ㄹ 돌아옴
 
 
 ---
