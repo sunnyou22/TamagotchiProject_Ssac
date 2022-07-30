@@ -45,7 +45,7 @@
 ## 트러블 슈핑(개인 fix)
 
 ### 설정창에서 셀 클릭시 스토리보드상 셀의 이미지 나오는 것
-<img style="max-width: 100%; height: auto;" src="https://drive.google.com/uc?export=view&id=1_yx8jAGHmc5qr_LlC9ymyP2XYRqVcJzC" >
+<img src="https://drive.google.com/uc?export=view&id=1_yx8jAGHmc5qr_LlC9ymyP2XYRqVcJzC">
 
 - 셀에 클릭이 생기고 상태가 바뀌는데 reload를 걸어주지 않아 스토리보드상의 UI가 계속 보이는 것이었다.
 처음에는 아래처럼 전체 셀에 reload를 걸어줬다. 하지만 해당 뷰에서 클릭이 발생하여 alert창이 떠있을 때는 viewWillAppear가 실행되지 않았는데 셀의 상태가 변경됐으므로  
