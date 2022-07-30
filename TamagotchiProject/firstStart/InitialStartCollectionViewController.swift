@@ -78,12 +78,16 @@ extension InitialStartCollectionViewController: SetNotification {
         return UNUserNotificationCenter.current()
     }
     
-    var triggerCalendar: UNCalendarNotificationTrigger {
-        var dateComponent: DateComponents = DateComponents()
-        dateComponent.minute = 240
-        
-      return UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+    var triggerTime: UNTimeIntervalNotificationTrigger {
+        return UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
     }
+    
+//    var triggerCalendar: UNCalendarNotificationTrigger {
+//        var dateComponent: DateComponents = DateComponents()
+//        dateComponent.minute = 240
+//
+//      return UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+//    }
     
     func requestAuthorization() {
         let authorixationOption = UNAuthorizationOptions(arrayLiteral: .alert, .sound , .badge)
@@ -98,11 +102,11 @@ extension InitialStartCollectionViewController: SetNotification {
     
     func sendNotification() {
         let notificationContent = UNMutableNotificationContent()
-        let request: UNNotificationRequest = UNNotificationRequest(identifier: "\(Date())", content: notificationContent, trigger: triggerCalendar)
+        let request: UNNotificationRequest = UNNotificationRequest(identifier: "\(Date())", content: notificationContent, trigger: triggerTime)
         var count: Int = 0
         
         var pulsTrigger: Int {
-            if triggerCalendar.repeats {
+            if triggerTime.repeats {
                 count += 1
                 return count
             } else {
@@ -110,7 +114,7 @@ extension InitialStartCollectionViewController: SetNotification {
             }
         }
         
-        notificationContent.title = "다마고치 키우기" // 어떤 다마고치인지 값전달 해보기
+        notificationContent.title = "다마고치 키우기\(Int.random(in: 1...100))" // 어떤 다마고치인지 값전달 해보기
         notificationContent.subtitle = "냠냠"
         notificationContent.body = "대장님 오늘 저한테 밥을 주셨나요??" // 대장님 이름 받아오기
         notificationContent.badge = (pulsTrigger) as NSNumber
