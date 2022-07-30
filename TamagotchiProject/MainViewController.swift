@@ -88,13 +88,6 @@ class MainViewController: UIViewController {
         //MARK: ButtonUI
         setButtonUI(buttonsStyle[0], title: "밥먹기", systemImage: "drop.circle")
         setButtonUI(buttonsStyle[1], title: "물먹기", systemImage: "leaf.circle")
-        
-        /*
-         1. 밥먹기를 그냥 누르면 1씩 올라가고
-         2. 텍스트 필드의 숫자 입력 -> 버튼 한번에 올라감
-         2-1. 숫자만 입력 될 수 있게 만들기 V
-         3. 함수에 담아서 이미지보다 상위에 실행시켜야함 -> 더 간단하게 만들수 잇는 방법생각하기
-         */
     }
     
     // 텍스트 필드가 비어있을 때 먹어야하는데...버그
