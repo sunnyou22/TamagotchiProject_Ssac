@@ -17,22 +17,19 @@ class MainViewController: UIViewController {
     @IBOutlet var buttonsStyle: [UIButton]!
     @IBOutlet weak var labelView: UIView!
     @IBOutlet var textFieldSectionViews: [UIView]!
+    @IBOutlet weak var containerView: UIView!
     
     //MARK: 프로퍼티
     var tamagotchiData: Tamagotchi = Tamagotchi(name: UserDefaults.standard.string(forKey: "UserTamagotchiName") ?? "아무개 다마고치", description: "", imageNumber: UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
     //    var level: Int = 1// 이미지별로 다른 거 확인
     var riceCount = 0
     var waterDropCount = 0
+    var keyHeight: CGFloat = 0 // 키보드 높이 지정 변수?
     let ricecount = UserDefaults.standard.integer(forKey: "riceCount") / 5
     let watercount = UserDefaults.standard.integer(forKey: "waterCount") / 5
-    
-    
-    // MARK: 계산하기
     var cumulation: Double {
         Double(ricecount) + Double(watercount)
     }
-    
-    
     var level: Int {
         switch cumulation {
         case 0:
@@ -44,22 +41,17 @@ class MainViewController: UIViewController {
         }
     }
     
-    let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
-    let viewbackgroundColor = DafaultUISetting.tamaBackgroundColor.setUI()
-    var keyHeight: CGFloat = 0 // 키보드 높이 지정 변수?
-    
     //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let username = UserDefaults.standard.string(forKey: "username") ?? "대장" // 이후 유저디폴트로 바꿔주기
+        navigationController?.navigationBar.tintColor = TamagotchoColor.fontAndBorderColor
         
         navigationItem.title = "\(username)님의 다마고치"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(goSettingTableViewController))
-        navigationItem.rightBarButtonItem?.tintColor = fontAndBorderColor
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : fontAndBorderColor]
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : TamagotchoColor.fontAndBorderColor]
         let barAppearance = UINavigationBarAppearance()
-        barAppearance.backgroundColor = DafaultUISetting.tamaBackgroundColor.setUI()
+        barAppearance.backgroundColor = TamagotchoColor.tamaBackgroundColor
         navigationItem.scrollEdgeAppearance = barAppearance
         
         navigationItem.backButtonTitle = ""
@@ -117,7 +109,7 @@ class MainViewController: UIViewController {
         addKeyboardNotifications()
         //MARK: view 배경색
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-        
+        containerView.backgroundColor = .clear
         tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "level")) • 밥알 \(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
         
         //MARK: label
@@ -127,15 +119,15 @@ class MainViewController: UIViewController {
         setLableUI(tamagotchiStatus)
         labelView.clipsToBounds = true
         labelView.layer.cornerRadius = 5
-        labelView.layer.borderColor = fontAndBorderColor.cgColor
+        labelView.layer.borderColor = TamagotchoColor.fontAndBorderColor.cgColor
         labelView.layer.borderWidth = 1
         labelView.backgroundColor = .clear
         
         //MARK: Textfeild
         setTextFieldUI(riceTextField, placeholder: "밥주세용")
         setTextFieldUI(waterTextField, placeholder: "물주세용")
-        textFieldSectionViews[0].backgroundColor = fontAndBorderColor
-        textFieldSectionViews[1].backgroundColor = fontAndBorderColor
+        textFieldSectionViews[0].backgroundColor = TamagotchoColor.fontAndBorderColor
+        textFieldSectionViews[1].backgroundColor = TamagotchoColor.fontAndBorderColor
         
         
         //MARK: ButtonUI
@@ -210,7 +202,7 @@ class MainViewController: UIViewController {
     func setLableUI(_ label: UILabel) {
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 14)
-        label.textColor = fontAndBorderColor
+        label.textColor = TamagotchoColor.fontAndBorderColor
         label.textAlignment = .center
     }
     
@@ -219,21 +211,21 @@ class MainViewController: UIViewController {
         textField.borderStyle = .none
         textField.placeholder = placeholder
         textField.font = .boldSystemFont(ofSize: 14)
-        textField.textColor = fontAndBorderColor
+        textField.textColor = TamagotchoColor.fontAndBorderColor
         textField.textAlignment = .center
         textField.keyboardType = .numberPad
     }
     
     func setButtonUI(_ btn: UIButton, title: String, systemImage: String) {
         btn.layer.cornerRadius = 5
-        btn.layer.borderColor = fontAndBorderColor.cgColor
+        btn.layer.borderColor = TamagotchoColor.fontAndBorderColor.cgColor
         btn.layer.borderWidth = 1.5
         btn.backgroundColor = .clear
         
         btn.setImage(UIImage(systemName: systemImage), for: .normal)
-        btn.tintColor = fontAndBorderColor
+        btn.tintColor = TamagotchoColor.fontAndBorderColor
         btn.setTitle(title, for: .normal)
-        btn.setTitleColor(fontAndBorderColor, for: .normal)
+        btn.setTitleColor(TamagotchoColor.fontAndBorderColor, for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         btn.setInsets(forContentPadding: .init(top: 8, left: 8, bottom: 8, right: 8), imageTitlePadding: 4)
     }

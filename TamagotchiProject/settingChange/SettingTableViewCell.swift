@@ -8,7 +8,6 @@
 import UIKit
 
 class SettingTableViewCell: UITableViewCell {
-    let fontAndBorderColor: UIColor = DafaultUISetting.fontAndBorderColor.setUI()
     
     @IBOutlet weak var settingImage: UIImageView!
     @IBOutlet weak var settingTiltle: UILabel!
@@ -17,14 +16,14 @@ class SettingTableViewCell: UITableViewCell {
    
     func setCellUI(image: String, title: String, name: String) {
         settingImage.image = UIImage(systemName: "\(image)")
-        settingImage.tintColor = fontAndBorderColor
+        settingImage.tintColor = TamagotchoColor.fontAndBorderColor
         
         settingTiltle.text = title
         settingTiltle.textColor = .black
         settingTiltle.font = .boldSystemFont(ofSize: 14)
         
         username.text = name
-        username.textColor = fontAndBorderColor
+        username.textColor = TamagotchoColor.fontAndBorderColor
         username.font = .systemFont(ofSize: 14)
         
     }

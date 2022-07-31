@@ -166,6 +166,7 @@
                     <navigationItem key="navigationItem" id="OKE-N3-ncN"/>
                     <connections>
                         <outlet property="ballonLabel" destination="IV2-5h-sp9" id="FH0-yg-ySI"/>
+                        <outlet property="containerView" destination="RZm-2k-Aho" id="JvT-CM-fHw"/>
                         <outlet property="image" destination="U0e-tA-6o6" id="2fd-om-qbi"/>
                         <outlet property="labelView" destination="94g-Df-Huv" id="HGa-6j-eZK"/>
                         <outlet property="riceTextField" destination="KNy-Sg-pOr" id="BJU-Xm-mQ0"/>

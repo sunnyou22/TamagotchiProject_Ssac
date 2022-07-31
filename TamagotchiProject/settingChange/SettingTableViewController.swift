@@ -8,21 +8,19 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
-    let fontAndBorderColor: UIColor = DafaultUISetting.fontAndBorderColor.setUI()
-    let backgrountColor: UIColor = DafaultUISetting.tamaBackgroundColor.setUI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = backgrountColor
+        view.backgroundColor = TamagotchoColor.tamaBackgroundColor
         navigationItem.title = "설정"
         
         
         // 한방에 네비게이션 바 색깔 지정방법
-        navigationController?.navigationBar.tintColor = fontAndBorderColor
+        navigationController?.navigationBar.tintColor = TamagotchoColor.fontAndBorderColor
         
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : fontAndBorderColor]
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : TamagotchoColor.fontAndBorderColor]
         let barAppearance = UINavigationBarAppearance()
-        barAppearance.backgroundColor = backgrountColor
+        barAppearance.backgroundColor = TamagotchoColor.tamaBackgroundColor
         navigationItem.scrollEdgeAppearance = barAppearance
     }
     
@@ -41,7 +39,7 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
         
-        cell.backgroundColor = backgrountColor
+        cell.backgroundColor = TamagotchoColor.tamaBackgroundColor
         cell.separatorInset = .zero
         cell.setSelected(false, animated: false)
         cell.selectionStyle = .none
