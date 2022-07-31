@@ -20,17 +20,39 @@ class MainViewController: UIViewController {
     
     //MARK: 프로퍼티
     var tamagotchiData: Tamagotchi = Tamagotchi(name: UserDefaults.standard.string(forKey: "UserTamagotchiName") ?? "아무개 다마고치", description: "", imageNumber: UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
-//    var level: Int = 1// 이미지별로 다른 거 확인
+    //    var level: Int = 1// 이미지별로 다른 거 확인
     var riceCount = 0
     var waterDropCount = 0
+    let ricecount = UserDefaults.standard.integer(forKey: "riceCount") / 5
+    let watercount = UserDefaults.standard.integer(forKey: "waterCount") / 5
+    
+    
+    // MARK: 계산하기
+    var cumulation: Double {
+        Double(ricecount) + Double(watercount)
+    }
+    
+    
+    var level: Int {
+        switch cumulation {
+        case 0:
+            return 1
+        case 100...:
+            return 10
+        default: // cumulation % 10 가 안되는 이유로는
+            return Int(cumulation.truncatingRemainder(dividingBy: 10.0) == 0 ? cumulation / 10 : (cumulation / 10) + 1)
+        }
+    }
+    
     let fontAndBorderColor = DafaultUISetting.fontAndBorderColor.setUI()
     let viewbackgroundColor = DafaultUISetting.tamaBackgroundColor.setUI()
+    var keyHeight: CGFloat = 0 // 키보드 높이 지정 변수?
     
-    //MARK: ViewWillAppear
+    //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let username = UserDefaults.standard.string(forKey: "username") ?? "대장" // 이후 유저디폴트로 바꿔주기
- 
+        
         navigationItem.title = "\(username)님의 다마고치"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(goSettingTableViewController))
         navigationItem.rightBarButtonItem?.tintColor = fontAndBorderColor
@@ -51,17 +73,45 @@ class MainViewController: UIViewController {
         }
         
         ballonLabel.text = randomlabelInballoon() // 랜덤 텍스트
+        addKeyboardNotifications()
         
     }
     
+    func addKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc
+    func keyboardWillShow(_ sender: Notification) {
+        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            keyHeight = keyboardHeight
+            
+            self.view.frame.origin.y -= keyboardHeight
+        }
+    }
+    @objc
+    func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y += keyHeight
+    }
+    
+    //MARK: - 버튼 클릭하는 메서드
     @IBAction func clickbuttons(_ sender: UIButton) {
         clickedEatButton(sender, textField: riceTextField)
-        clickedEatButton(sender, textField: waterTextField)
+        //        clickedEatButton(sender, textField: waterTextField)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         //MARK: view 배경색
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
@@ -133,29 +183,9 @@ class MainViewController: UIViewController {
                 }
             }
         }
-        let ricecount = UserDefaults.standard.integer(forKey: "riceCount") / 5
-        let watercount = UserDefaults.standard.integer(forKey: "waterCount") / 5
-        
-        
-        // MARK: 계산하기
-        var cumulation: Double {
-            Double(ricecount) + Double(watercount)
-        }
-      
-        
-        var level: Int {
-            switch cumulation {
-            case 0:
-                return 1
-            case 100...:
-                return 10
-            default: // cumulation % 10 가 안되는 이유로는 
-                return Int(cumulation.truncatingRemainder(dividingBy: 10.0) == 0 ? cumulation / 10 : (cumulation / 10) + 1)
-            }
-        }
         
         tamagotchiStatus.text = "LV\(level) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
-      
+        
         //MARK: 이미지
         let imageName = level == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level - 1)"
         
@@ -225,5 +255,27 @@ class MainViewController: UIViewController {
         
         return labels.randomElement() ?? "오류입니다. 죄송합니다."
     }
+    
+    /*
+     @objc
+     func keyboardWillShow(_ sender: Notification) {
+     self.keyboardWillShow(sender)
+     let userInfo: NSDictionary = sender.userInfo! as NSDictionary
+     l
+     self.view.frame.size.height -= keyboardHeight
+     }
+     
+     @objc
+     func keyboardWillHide(_ sender: Notification) {
+     self.view.frame.size.height += keyHeight
+     }
+     */
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.removeKeyboardNotifications()
+    }
 }
+
 
