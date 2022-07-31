@@ -14,7 +14,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tamagotchiStatus: UILabel!
     @IBOutlet weak var riceTextField: UITextField!
     @IBOutlet weak var waterTextField: UITextField!
-    @IBOutlet var buttonsStyle: [UIButton]!
+    @IBOutlet weak var riceButton: UIButton!
+    @IBOutlet weak var waterButton: UIButton!
     @IBOutlet weak var labelView: UIView!
     @IBOutlet var textFieldSectionViews: [UIView]!
     @IBOutlet weak var containerView: UIView!
@@ -65,6 +66,7 @@ class MainViewController: UIViewController {
         }
         
         ballonLabel.text = randomlabelInballoon() // 랜덤 텍스트
+        
         addKeyboardNotifications()
     }
     
@@ -100,13 +102,28 @@ class MainViewController: UIViewController {
     }
     //MARK: - 버튼 클릭하는 메서드
     @IBAction func clickbuttons(_ sender: UIButton) {
-        clickedEatButton(sender, textField: riceTextField)
-        clickedEatButton(sender, textField: waterTextField)
+        if sender.tag == 0 { //->  enum케이스로 유저디폴트 키값이랑 버튼 태크 매칭시키기
+        clickedEatButton(sender, textField: riceTextField, userDefaultKey: "riceCount")
+        } else if sender.tag == 1 {
+        clickedEatButton(sender, textField: waterTextField, userDefaultKey: "waterCount")
+        }
+        tamagotchiStatus.text = "LV\(level) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        
+        //MARK: 이미지
+        let imageName = level == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level - 1)"
+        
+        image.image = UIImage(named: imageName)
+        UserDefaults.standard.set(imageName, forKey: "currentImageName")
+        
+        ballonLabel.text = randomlabelInballoon()
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addKeyboardNotifications()
+        
         //MARK: view 배경색
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         containerView.backgroundColor = .clear
@@ -131,61 +148,31 @@ class MainViewController: UIViewController {
         
         
         //MARK: ButtonUI
-        setButtonUI(buttonsStyle[0], title: "밥먹기", systemImage: "drop.circle")
-        setButtonUI(buttonsStyle[1], title: "물먹기", systemImage: "leaf.circle")
+        setButtonUI(riceButton, title: "밥먹기", systemImage: "drop.circle")
+        setButtonUI(waterButton, title: "물먹기", systemImage: "leaf.circle")
     }
     
-    // 텍스트 필드가 비어있을 때 먹어야하는데...버그
-    func clickedEatButton(_ button: UIButton, textField: UITextField) {
-        let ricecurrentValue = UserDefaults.standard.integer(forKey: "riceCount")
-        var riceupdateValue = 0
-        let watercurrentValue = UserDefaults.standard.integer(forKey: "waterCount")
-        var waterupdateValue = 0
-        UserDefaults.standard.set(button.isTouchInside, forKey: "buttonClick")
-        
-        ballonLabel.text = randomlabelInballoon()
-        
-        if button.titleLabel?.text == "밥먹기" {
+    //
+    func clickedEatButton(_ button: UIButton, textField: UITextField, userDefaultKey: String) {
+        let currentValue = UserDefaults.standard.integer(forKey: userDefaultKey)
+        var updateValue = 0
+            
             if let textField = textField.text, textField.isEmpty {
-                riceupdateValue = ricecurrentValue + 1
-                UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
-                print(riceCount, "ricecount")
+                updateValue = currentValue + 1
+                UserDefaults.standard.set(updateValue, forKey: userDefaultKey)
             } else {
-                if let textCount = Int(textField.text!), textCount < 100, textCount >= 0 {
-                    riceupdateValue = ricecurrentValue + textCount
-                    UserDefaults.standard.set(riceupdateValue, forKey: "riceCount")
-                    print(riceCount)
-                } else if let textCount = Int(textField.text!), textCount >= 100 {
-                    ballonLabel.text = "토할것가타요오...ㅠㅠ"
-                } else {
-                    ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
+                if let textCount = Int(textField.text!) {
+                    switch textCount {
+                    case 0..<100:
+                        updateValue = currentValue + textCount
+                        UserDefaults.standard.set(updateValue, forKey: userDefaultKey)
+                    case 100...:
+                        ballonLabel.text = "토할것가타요오...ㅠㅠ"
+                    default:   ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
+                        
+                    }
                 }
             }
-        } else {
-            if let textField = textField.text, textField.isEmpty {
-                waterupdateValue = watercurrentValue + 1
-                UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
-                print(waterDropCount, "watercount")
-            } else {
-                if let textCount = Int(textField.text!), textCount < 50, textCount >= 0 {
-                    waterupdateValue = watercurrentValue + textCount
-                    UserDefaults.standard.set(waterupdateValue, forKey: "waterCount")
-                    print(waterDropCount)
-                } else if let textCount = Int(textField.text!), textCount >= 50 {
-                    ballonLabel.text = "물 그만그만이에요!!ㅜㅜㅜ"
-                } else {
-                    ballonLabel.text = "으악 먹을 수 없는거에요ㅠㅠ"
-                }
-            }
-        }
-        
-        tamagotchiStatus.text = "LV\(level) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
-        
-        //MARK: 이미지
-        let imageName = level == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level - 1)"
-        
-        image.image = UIImage(named: imageName)
-        UserDefaults.standard.set(imageName, forKey: "currentImageName")
     }
     
     // MARK: - 메서드
@@ -257,5 +244,3 @@ class MainViewController: UIViewController {
         self.removeKeyboardNotifications()
     }
 }
-
-

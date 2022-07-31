@@ -99,14 +99,6 @@ class SettingTableViewController: UITableViewController {
                 UserDefaults.standard.removeObject(forKey: "username")
                 UserDefaults.standard.removeObject(forKey: "currentImageName")
                 
-                //MARK: dismiss로 구현해보기, Unwind로 가볼 수 없을까
-                //                let sb = UIStoryboard(name: "InitialStart", bundle: nil)
-                //                let vc  = sb.instantiateViewController(withIdentifier: "InitialStartCollectionViewController") as! InitialStartCollectionViewController
-                
-                // 화면이 아예 멈춰버림
-                //                let nav = UINavigationController(rootViewController: self)
-                //                nav.dismiss(animated: true)
-                
                 
                 //MARK: 초기화로 구현
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene

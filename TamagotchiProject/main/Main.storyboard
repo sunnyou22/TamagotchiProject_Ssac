@@ -53,7 +53,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YPI-Mt-Jmz">
                                         <rect key="frame" x="71.000000000000014" y="633" width="248.33333333333337" height="20"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-oe-ZWW">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="플레이스 홀더 입력~" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="S7K-oe-ZWW">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="180" id="cTb-Lh-bM5"/>
@@ -61,7 +61,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKF-GJ-jPY">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKF-GJ-jPY">
                                                 <rect key="frame" x="188" y="0.0" width="60.333333333333343" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -169,19 +169,19 @@
                         <outlet property="containerView" destination="RZm-2k-Aho" id="JvT-CM-fHw"/>
                         <outlet property="image" destination="U0e-tA-6o6" id="2fd-om-qbi"/>
                         <outlet property="labelView" destination="94g-Df-Huv" id="HGa-6j-eZK"/>
+                        <outlet property="riceButton" destination="vvb-LQ-NSH" id="zJF-KR-YRN"/>
                         <outlet property="riceTextField" destination="KNy-Sg-pOr" id="BJU-Xm-mQ0"/>
                         <outlet property="tamagotchiName" destination="6SV-dL-NP4" id="Avd-pi-0AA"/>
                         <outlet property="tamagotchiStatus" destination="Bg7-qS-l3c" id="Y5M-f5-vM8"/>
+                        <outlet property="waterButton" destination="wKF-GJ-jPY" id="aRi-SQ-9bx"/>
                         <outlet property="waterTextField" destination="S7K-oe-ZWW" id="67V-zd-ABd"/>
                         <outletCollection property="textFieldSectionViews" destination="Ng9-86-dpX" collectionClass="NSMutableArray" id="4Sn-CQ-diE"/>
-                        <outletCollection property="buttonsStyle" destination="wKF-GJ-jPY" collectionClass="NSMutableArray" id="NMQ-RE-fcp"/>
-                        <outletCollection property="buttonsStyle" destination="vvb-LQ-NSH" collectionClass="NSMutableArray" id="MSI-E3-ePe"/>
                         <outletCollection property="textFieldSectionViews" destination="Xf3-kH-D7i" collectionClass="NSMutableArray" id="pWh-e1-mxm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nF7-kG-8c1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-540" y="-962.55924170616106"/>
+            <point key="canvasLocation" x="-778" y="-1017"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pFj-hJ-RTx">
