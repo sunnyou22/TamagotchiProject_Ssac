@@ -74,12 +74,11 @@ class MainViewController: UIViewController {
         
         ballonLabel.text = randomlabelInballoon() // 랜덤 텍스트
         addKeyboardNotifications()
-        
     }
     
     func addKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func removeKeyboardNotifications() {
@@ -95,23 +94,27 @@ class MainViewController: UIViewController {
             let keyboardHeight = keyboardRectangle.height
             keyHeight = keyboardHeight
             
-            self.view.frame.origin.y -= keyboardHeight
+            self.view.frame.origin.y = -keyboardHeight
         }
     }
     @objc
     func keyboardWillHide(_ sender: Notification) {
-        self.view.frame.origin.y += keyHeight
+        self.view.frame.origin.y = 0
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     //MARK: - 버튼 클릭하는 메서드
     @IBAction func clickbuttons(_ sender: UIButton) {
         clickedEatButton(sender, textField: riceTextField)
-        //        clickedEatButton(sender, textField: waterTextField)
+        clickedEatButton(sender, textField: waterTextField)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addKeyboardNotifications()
         //MARK: view 배경색
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
@@ -255,21 +258,6 @@ class MainViewController: UIViewController {
         
         return labels.randomElement() ?? "오류입니다. 죄송합니다."
     }
-    
-    /*
-     @objc
-     func keyboardWillShow(_ sender: Notification) {
-     self.keyboardWillShow(sender)
-     let userInfo: NSDictionary = sender.userInfo! as NSDictionary
-     l
-     self.view.frame.size.height -= keyboardHeight
-     }
-     
-     @objc
-     func keyboardWillHide(_ sender: Notification) {
-     self.view.frame.size.height += keyHeight
-     }
-     */
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
