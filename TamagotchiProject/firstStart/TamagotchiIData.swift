@@ -7,7 +7,7 @@
 
 import Foundation
 
-// 유저 이름 넣어주기
+// 유저 이름 넣어주기 -> 열거형으로 바꾸기
 struct Tamagotchi {
     var name: String
     var username: String = "대장"

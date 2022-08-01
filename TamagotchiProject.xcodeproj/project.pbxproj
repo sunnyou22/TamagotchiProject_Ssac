@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		900123EC2897CDBB0041DD19 /* MainSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900123EB2897CDBB0041DD19 /* MainSetting.swift */; };
+		900123EE2897DDDD0041DD19 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900123ED2897DDDD0041DD19 /* UserDefaultHelper.swift */; };
 		9031B1742893E06D00DF0355 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9031B1732893E06D00DF0355 /* Protocol.swift */; };
 		903A6128288D10D700BD6500 /* defaultUISetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A6127288D10D700BD6500 /* defaultUISetting.swift */; };
 		903A612B288D4FA300BD6500 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 903A612A288D4FA300BD6500 /* Toast */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		900123EB2897CDBB0041DD19 /* MainSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSetting.swift; sourceTree = "<group>"; };
+		900123ED2897DDDD0041DD19 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 		9031B1732893E06D00DF0355 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		903A6127288D10D700BD6500 /* defaultUISetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultUISetting.swift; sourceTree = "<group>"; };
 		903A612C288D9DC000BD6500 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				903A6127288D10D700BD6500 /* defaultUISetting.swift */,
 				9031B1732893E06D00DF0355 /* Protocol.swift */,
+				900123ED2897DDDD0041DD19 /* UserDefaultHelper.swift */,
 			);
 			path = setting;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			files = (
 				90A3B4D3288BAC3C001F5ACB /* InitialStartCollectionViewController.swift in Sources */,
 				90A3B4B5288A89C1001F5ACB /* MainViewController.swift in Sources */,
+				900123EE2897DDDD0041DD19 /* UserDefaultHelper.swift in Sources */,
 				903A6128288D10D700BD6500 /* defaultUISetting.swift in Sources */,
 				90A3B4B1288A89C1001F5ACB /* AppDelegate.swift in Sources */,
 				90A3B4B3288A89C1001F5ACB /* SceneDelegate.swift in Sources */,
