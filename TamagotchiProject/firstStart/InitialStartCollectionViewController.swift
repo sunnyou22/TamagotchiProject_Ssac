@@ -44,7 +44,7 @@ class InitialStartCollectionViewController: UICollectionViewController {
     
     //MARK: 셀 디자인
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialStartCollectionViewCell.reuseIdentifier, for: indexPath) as! InitialStartCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialStartCollectionViewCell.reuseIdentifier, for: indexPath) as? InitialStartCollectionViewCell else { return UICollectionViewCell() }
         
         cell.configureCell(index: indexPath.row)
         
@@ -55,7 +55,7 @@ class InitialStartCollectionViewController: UICollectionViewController {
         
         if indexPath.row < 3 {
             let sb = UIStoryboard(name: "InitialStart", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: DetailPopoverViewController.reuseIdentifier) as! DetailPopoverViewController
+            guard let vc = sb.instantiateViewController(withIdentifier: DetailPopoverViewController.reuseIdentifier) as? DetailPopoverViewController else { return }
             let nav = UINavigationController(rootViewController: vc)
             
             nav.modalPresentationStyle = .overCurrentContext

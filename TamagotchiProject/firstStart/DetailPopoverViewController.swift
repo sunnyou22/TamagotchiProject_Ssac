@@ -82,7 +82,7 @@ class DetailPopoverViewController: UIViewController {
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: MainViewController.reuseIdentifier) as! MainViewController
+        guard let vc = sb.instantiateViewController(withIdentifier: MainViewController.reuseIdentifier) as? MainViewController else { return }
         let nav = UINavigationController(rootViewController: vc)
 //        vc.tamagotchiData = tamagotchiData -> UserDefault로 저장해서 필요없음
         

@@ -182,7 +182,7 @@ class MainViewController: UIViewController {
     @objc
     func goSettingTableViewController() {
         let sb = UIStoryboard(name: "Setting", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "SettingTableViewController") as! SettingTableViewController
+        guard let vc = sb.instantiateViewController(withIdentifier: "SettingTableViewController") as? SettingTableViewController else { return }
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

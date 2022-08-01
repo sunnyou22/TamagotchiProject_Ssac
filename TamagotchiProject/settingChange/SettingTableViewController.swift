@@ -37,7 +37,7 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.reuseIdentifier, for: indexPath) as! SettingTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.reuseIdentifier, for: indexPath) as? SettingTableViewCell else { return UITableViewCell() }
         
         cell.backgroundColor = TamagotchoColor.tamaBackgroundColor
         cell.separatorInset = .zero
@@ -64,18 +64,18 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.reuseIdentifier, for: indexPath) as! SettingTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.reuseIdentifier, for: indexPath) as? SettingTableViewCell else { return }
         // cell을 선언해주지 않고 변경하기 버튼을 누른 상태를 저장해주려면?
         tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .fade)
         
         if indexPath.row == 0 {
             let sb = UIStoryboard(name: "Setting", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: NicknameViewController.reuseIdentifier) as! NicknameViewController
+            guard let vc = sb.instantiateViewController(withIdentifier: NicknameViewController.reuseIdentifier) as? NicknameViewController else { return }
             
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 1 {
             let sb = UIStoryboard(name: "InitialStart", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: InitialStartCollectionViewCell.reuseIdentifier) as! InitialStartCollectionViewController
+            guard let vc = sb.instantiateViewController(withIdentifier: InitialStartCollectionViewCell.reuseIdentifier) as? InitialStartCollectionViewController else { return }
             let nav = UINavigationController(rootViewController: vc)
             self.navigationController?.pushViewController(vc, animated: true)
             
@@ -104,7 +104,7 @@ class SettingTableViewController: UITableViewController {
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDeleate = windowScene?.delegate as? SceneDelegate
                 let sb = UIStoryboard(name: "InitialStart", bundle: nil)
-                let vc  = sb.instantiateViewController(withIdentifier: InitialStartCollectionViewCell.reuseIdentifier) as! InitialStartCollectionViewController
+                guard let vc  = sb.instantiateViewController(withIdentifier: InitialStartCollectionViewCell.reuseIdentifier) as? InitialStartCollectionViewController else { return }
                 let nav = UINavigationController(rootViewController: vc)
                 
                 //샤라락 화면 전환 왜 안될까
