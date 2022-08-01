@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900123EC2897CDBB0041DD19 /* MainSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900123EB2897CDBB0041DD19 /* MainSetting.swift */; };
 		9031B1742893E06D00DF0355 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9031B1732893E06D00DF0355 /* Protocol.swift */; };
 		903A6128288D10D700BD6500 /* defaultUISetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903A6127288D10D700BD6500 /* defaultUISetting.swift */; };
 		903A612B288D4FA300BD6500 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 903A612A288D4FA300BD6500 /* Toast */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		900123EB2897CDBB0041DD19 /* MainSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSetting.swift; sourceTree = "<group>"; };
 		9031B1732893E06D00DF0355 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		903A6127288D10D700BD6500 /* defaultUISetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultUISetting.swift; sourceTree = "<group>"; };
 		903A612C288D9DC000BD6500 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				903DC5C5289648C200192CFE /* Main.storyboard */,
 				90A3B4B4288A89C1001F5ACB /* MainViewController.swift */,
+				900123EB2897CDBB0041DD19 /* MainSetting.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				903A612D288D9DC000BD6500 /* SettingTableViewController.swift in Sources */,
 				90A3B4DA288BF9B3001F5ACB /* DetailPopoverViewController.swift in Sources */,
 				90A3B4D5288BAF37001F5ACB /* InitialStartCollectionViewCell.swift in Sources */,
+				900123EC2897CDBB0041DD19 /* MainSetting.swift in Sources */,
 				9031B1742893E06D00DF0355 /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,13 +23,13 @@ class MainViewController: UIViewController {
     //MARK: 프로퍼티
     var tamagotchiData: Tamagotchi = Tamagotchi(name: UserDefaults.standard.string(forKey: "UserTamagotchiName") ?? "아무개 다마고치", description: "", imageNumber: UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))
     //    var level: Int = 1// 이미지별로 다른 거 확인
-    var riceCount = 0
-    var waterDropCount = 0
+//    var riceCount = 0
+//    var waterDropCount = 0
     var keyHeight: CGFloat = 0 // 키보드 높이 지정 변수?
-    let ricecount = UserDefaults.standard.integer(forKey: "riceCount") / 5
-    let watercount = UserDefaults.standard.integer(forKey: "waterCount") / 5
+    let riceCalculation = UserDefaults.standard.integer(forKey: ButtonKey.riceCount.buttonUserDefaultsName) / 5
+    let waterCalculation = UserDefaults.standard.integer(forKey: ButtonKey.riceCount.buttonUserDefaultsName) / 5
     var cumulation: Double {
-        Double(ricecount) + Double(watercount)
+        Double(riceCalculation) + Double(waterCalculation)
     }
     var level: Int {
         switch cumulation {
@@ -100,16 +100,16 @@ class MainViewController: UIViewController {
         self.view.endEditing(true)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     //MARK: - 버튼 클릭하는 메서드
     @IBAction func clickbuttons(_ sender: UIButton) {
-        if sender.tag == 0 { //->  enum케이스로 유저디폴트 키값이랑 버튼 태크 매칭시키기
-        clickedEatButton(sender, textField: riceTextField, userDefaultKey: "riceCount")
-        } else if sender.tag == 1 {
-        clickedEatButton(sender, textField: waterTextField, userDefaultKey: "waterCount")
+        if sender.tag == ButtonKey.riceCount.rawValue { //->  enum케이스로 유저디폴트 키값이랑 버튼 태크 매칭시키기
+            clickedEatButton(sender, textField: riceTextField, userDefaultKey: ButtonKey.riceCount.buttonUserDefaultsName)
+        } else if sender.tag == ButtonKey.waterCount.rawValue {
+            clickedEatButton(sender, textField: waterTextField, userDefaultKey: ButtonKey.waterCount.buttonUserDefaultsName)
         }
         
-        
-        tamagotchiStatus.text = "LV\(level) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        tamagotchiStatus.text = "LV\(level) • 밥알\(UserDefaults.standard.integer(forKey: ButtonKey.riceCount.buttonUserDefaultsName))개 • 물방울 \(UserDefaults.standard.integer(forKey: ButtonKey.waterCount.buttonUserDefaultsName))개"
         
         //MARK: 이미지
         let imageName = level == 1 ? "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level))" : "\(UserDefaults.standard.integer(forKey: "UserTamagotchImageNumber"))-\(level - 1)"
@@ -129,7 +129,7 @@ class MainViewController: UIViewController {
         //MARK: view 배경색
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         containerView.backgroundColor = .clear
-        tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "level")) • 밥알 \(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
+        tamagotchiStatus.text =  "LV\(UserDefaults.standard.integer(forKey: "level")) • 밥알 \(UserDefaults.standard.integer(forKey: ButtonKey.riceCount.buttonUserDefaultsName))개 • 물방울 \(UserDefaults.standard.integer(forKey: ButtonKey.waterCount.buttonUserDefaultsName))개"
         
         //MARK: label
         tamagotchiName.text = UserDefaults.standard.string(forKey: "UserTamagotchiName")
