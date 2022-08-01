@@ -44,7 +44,7 @@ class InitialStartCollectionViewController: UICollectionViewController {
     
     //MARK: 셀 디자인
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialStartCollectionViewCell.identifier, for: indexPath) as! InitialStartCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InitialStartCollectionViewCell.reuseIdentifier, for: indexPath) as! InitialStartCollectionViewCell
         
         cell.configureCell(index: indexPath.row)
         
@@ -55,7 +55,7 @@ class InitialStartCollectionViewController: UICollectionViewController {
         
         if indexPath.row < 3 {
             let sb = UIStoryboard(name: "InitialStart", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: DetailPopoverViewController.identifier) as! DetailPopoverViewController
+            let vc = sb.instantiateViewController(withIdentifier: DetailPopoverViewController.reuseIdentifier) as! DetailPopoverViewController
             let nav = UINavigationController(rootViewController: vc)
             
             nav.modalPresentationStyle = .overCurrentContext
@@ -81,13 +81,6 @@ extension InitialStartCollectionViewController: SetNotification {
     var triggerTime: UNTimeIntervalNotificationTrigger {
         return UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
     }
-    
-//    var triggerCalendar: UNCalendarNotificationTrigger {
-//        var dateComponent: DateComponents = DateComponents()
-//        dateComponent.minute = 240
-//
-//      return UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-//    }
     
     func requestAuthorization() {
         let authorixationOption = UNAuthorizationOptions(arrayLiteral: .alert, .sound , .badge)

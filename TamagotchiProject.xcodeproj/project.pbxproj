@@ -61,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		900123EA2897BFE90041DD19 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				903A6127288D10D700BD6500 /* defaultUISetting.swift */,
+				9031B1732893E06D00DF0355 /* Protocol.swift */,
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
 		90A3B4A4288A89C1001F5ACB = {
 			isa = PBXGroup;
 			children = (
@@ -82,9 +91,8 @@
 			children = (
 				90A3B4B0288A89C1001F5ACB /* AppDelegate.swift */,
 				90A3B4B2288A89C1001F5ACB /* SceneDelegate.swift */,
-				903A6127288D10D700BD6500 /* defaultUISetting.swift */,
 				90A3B4D8288BF8EA001F5ACB /* main */,
-				9031B1732893E06D00DF0355 /* Protocol.swift */,
+				900123EA2897BFE90041DD19 /* setting */,
 				90A3B4C4288BA89E001F5ACB /* firstStart */,
 				90A3B4C6288BA8F0001F5ACB /* settingChange */,
 				90A3B4B9288A89C3001F5ACB /* Assets.xcassets */,

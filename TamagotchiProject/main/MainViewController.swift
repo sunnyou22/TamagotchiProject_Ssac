@@ -107,6 +107,8 @@ class MainViewController: UIViewController {
         } else if sender.tag == 1 {
         clickedEatButton(sender, textField: waterTextField, userDefaultKey: "waterCount")
         }
+        
+        
         tamagotchiStatus.text = "LV\(level) • 밥알\(UserDefaults.standard.integer(forKey: "riceCount"))개 • 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
         
         //MARK: 이미지
