@@ -17,8 +17,6 @@ class DetailPopoverViewController: UIViewController {
     @IBOutlet weak var buttonSection: UIView!
     @IBOutlet weak var cancleButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
-    
-    static var identifier = "DetailPopoverViewController"
     //MARK: 값 받을 공간 - 값이 없을 수도 있으니 옵셔널
     var tamagotchiData: Tamagotchi?
     
@@ -84,7 +82,7 @@ class DetailPopoverViewController: UIViewController {
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        guard let vc = sb.instantiateViewController(withIdentifier: MainViewController.reuseIdentifier) as? MainViewController else { return }
         let nav = UINavigationController(rootViewController: vc)
 //        vc.tamagotchiData = tamagotchiData -> UserDefault로 저장해서 필요없음
         

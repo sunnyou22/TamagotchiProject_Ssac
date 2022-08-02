@@ -8,7 +8,6 @@
 import UIKit
 
 class InitialStartCollectionViewCell: UICollectionViewCell {
-    static let identifier = "InitialStartCollectionViewCell"
     
     @IBOutlet weak var labelView: UIView!
     @IBOutlet weak var staticImage: UIImageView!

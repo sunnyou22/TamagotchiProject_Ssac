@@ -8,7 +8,6 @@
 import UIKit
 
 class NicknameViewController: UIViewController {
-    let backgountdColor: UIColor = DafaultUISetting.tamaBackgroundColor.setUI()
     @IBOutlet weak var containView: UIView!
     @IBOutlet weak var nicknameTextField: UITextField! {
         didSet {
@@ -25,7 +24,7 @@ class NicknameViewController: UIViewController {
         UserDefaults.standard.set(username, forKey: "username") // 키벨류 초기 세팅
         nicknameTextField.text = username // 텍스트필트에 유저네임을 나타나도록하기, 버튼을 클릭하면 변경된 유저네임을 넣어줌
 
-        view.backgroundColor = backgountdColor
+        view.backgroundColor = TamagotchoColor.tamaBackgroundColor
         
         nicknameUI()
         
@@ -58,9 +57,9 @@ class NicknameViewController: UIViewController {
         
         nicknameTextField.borderStyle = .none
         nicknameTextField.font = .systemFont(ofSize: 14)
-        nicknameTextField.textColor = DafaultUISetting.fontAndBorderColor.setUI()
+        nicknameTextField.textColor = TamagotchoColor.fontAndBorderColor
         nicknameTextField.backgroundColor = .clear
         
-        sectionView.backgroundColor = DafaultUISetting.fontAndBorderColor.setUI()
-    }
+        sectionView.backgroundColor = TamagotchoColor.fontAndBorderColor
+}
 }
